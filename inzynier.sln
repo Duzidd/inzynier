@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inzynier", "inzynier.csproj", "{66A0B9F6-FE81-41E1-A40D-65A21633B6DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66A0B9F6-FE81-41E1-A40D-65A21633B6DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A0B9F6-FE81-41E1-A40D-65A21633B6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A0B9F6-FE81-41E1-A40D-65A21633B6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A0B9F6-FE81-41E1-A40D-65A21633B6DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {232055CA-1234-4AE4-AA75-9E22D3A9ACA9}
+	EndGlobalSection
+EndGlobal
