@@ -24,5 +24,10 @@ namespace inzynier
         {
             InitializeComponent();
         }
+        private void Windows_MouseDown (object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
     }
 }
