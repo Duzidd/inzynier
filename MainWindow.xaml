@@ -11,13 +11,47 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseDown="Windows_MouseDown"
-        >
-    <Border CornerRadius="50"
-            Background="#6b08a8"
-            BorderBrush="MediumAquamarine"
-            BorderThickness="2">
-
+        MouseDown="Windows_MouseDown">
         
+    <Border CornerRadius="50"
+            
+            BorderThickness="6">
+        <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462ad8" Offset="0"/>
+                    <GradientStop Color="#ff05da" Offset="0.5"/>
+                    <GradientStop Color="#ff052f" Offset="1"/>
+            </LinearGradientBrush> 
+                
+            </Border.BorderBrush>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#462ad8" Offset="0"/>
+                <GradientStop Color="#ff05da" Offset="0.5"/>
+                <GradientStop Color="#ff052f" Offset="1"/>
+            </LinearGradientBrush>
+
+        </Border.Background>
+        
+        <Grid>
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="30"/>
+                <RowDefinition/>    
+
+
+            </Grid.RowDefinitions>
+            <Grid Background="Yellow">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+        </Grid>
+
+
+
     </Border>
 </Window>
