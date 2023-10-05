@@ -55,15 +55,68 @@
                            Grid.Column="0"
                            />
                 <Button
-                     Background="Blue"
-                    Content="_"
                      
-                     Grid.Column="1" />
+                    Content="_"
+                    Cursor="Hand"
+                     Grid.Column="1" Click="Button_Click_2">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#38a8f2"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#6e35f2"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+
+                        </Style>
+
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    
+                </Button>
                 <Button
                     
-                     Background="White"
+                     
                      Content="X"
-                     Grid.Column="2" />
+                     Cursor="Hand"
+                     Grid.Column="2" Click="Button_Click_1" >
+
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#38f27c"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#6e35f2"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+
+                        </Style>
+
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                  
+
 
 
 
