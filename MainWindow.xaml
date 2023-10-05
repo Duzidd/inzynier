@@ -38,17 +38,36 @@
             <Grid.RowDefinitions >
                 <RowDefinition Height="30"/>
                 <RowDefinition/>    
-
-
             </Grid.RowDefinitions>
-            <Grid Background="Yellow">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20" />
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="5"/>
-                </Grid.ColumnDefinitions>
-            </Grid>
 
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition  Width="50" />
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="22"/>
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock Text="login xd"
+                           TextAlignment="Center"
+                           
+                           Grid.Column="0"
+                           />
+                <Button
+                     Background="Blue"
+                    Content="_"
+                     
+                     Grid.Column="1" />
+                <Button
+                    
+                     Background="White"
+                     Content="X"
+                     Grid.Column="2" />
+
+
+
+            </Grid>
         </Grid>
 
 
