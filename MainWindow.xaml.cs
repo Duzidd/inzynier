@@ -44,5 +44,10 @@ namespace inzynier
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void Login_Click()
+        {
+
+        }
     }
 }
