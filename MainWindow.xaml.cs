@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,9 +46,31 @@ namespace inzynier
             WindowState = WindowState.Minimized;
         }
 
-        private void Login_Click()
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+
+                MessageBox.Show("połączono");
+
+                // Wykonaj operacje na bazie danych
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("błąd");
+            }
         }
     }
 }
