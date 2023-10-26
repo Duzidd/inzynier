@@ -55,7 +55,7 @@ namespace inzynier
         {
             string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
 
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             try
             {
                 connection.Open();
@@ -66,7 +66,7 @@ namespace inzynier
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 MessageBox.Show("błąd");

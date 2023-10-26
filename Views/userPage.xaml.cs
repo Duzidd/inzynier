@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace inzynier.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy Navigation.xaml
+    /// Logika interakcji dla klasy userPage.xaml
     /// </summary>
-    public partial class Navigation : Window
+    public partial class UserPage : Window
     {
-        public Navigation()
+        public UserPage()
         {
             InitializeComponent();
         }
@@ -50,3 +50,5 @@ namespace inzynier.Views
         }
     }
 }
+    
+
