@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inzynier.Views;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -49,6 +50,26 @@ namespace inzynier
         private void Login_Click(object sender, RoutedEventArgs e)
         {
 
+            string f = txtUser.Text.Trim();
+            if (f == "Admin")
+            {
+                AdminPage win2 = new AdminPage();
+                win2.Show();
+                this.Close(); //only if you want to close the current form.
+            }
+            else if (f == "User")
+            {
+                UserPage new44 = new UserPage();
+                new44.Show();
+                this.Close();
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("Błędne dane");
+            }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
