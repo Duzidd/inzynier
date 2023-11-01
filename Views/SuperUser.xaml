@@ -1,4 +1,4 @@
-﻿<Window x:Class="inzynier.Views.AdminPage"
+﻿<Window x:Class="inzynier.Views.SuperUser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -92,13 +92,11 @@
             </Grid>
 
 
-            <Button Content="Kasowanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="205,17,409,217" Grid.Row="1"/>
-            <Button Content="Dostępne zapasy" Style="{StaticResource SquareButtonStyle}" Margin="10,117,604,117" Grid.Row="1"/>
-            <Button Content="Przesuwanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="205,214,409,20" Grid.Row="1"/>
-            <Button Content="Administracja użytkownikami" Style="{StaticResource SquareButtonStyle}" Margin="584,204,10,10" Grid.Row="1"/>
-            <Button Content="Dodawanie magazynu, lokalizacji" Style="{StaticResource SquareButtonStyle}" Margin="584,7,10,207" Grid.Row="1" RenderTransformOrigin="0.592,0.36"/>
-            <Button Content="Zmiana ilości produktu" Style="{StaticResource SquareButtonStyle}" Margin="397,17,217,217" Grid.Row="1"/>
-            <Button Content="Dodawanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="397,214,217,20" Grid.Row="1"/>
+            <Button Content="Kasowanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="10,5,604,229" Grid.Row="1"/>
+            <Button Content="Dostępne zapasy" Style="{StaticResource SquareButtonStyle}" Margin="307,117,307,117" Grid.Row="1"/>
+            <Button Content="Przesuwanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="10,224,604,10" Grid.Row="1"/>
+            <Button Content="Zmiana ilości produktu" Style="{StaticResource SquareButtonStyle}" Margin="604,10,10,224" Grid.Row="1"/>
+            <Button Content="Dodawanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="604,224,10,10" Grid.Row="1"/>
         </Grid>
     </Border>
 </Window>

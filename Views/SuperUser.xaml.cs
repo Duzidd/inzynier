@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace inzynier.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy userPage.xaml
+    /// Logika interakcji dla klasy AdminPage.xaml
     /// </summary>
-    public partial class UserPage : Window
+    public partial class SuperUser : Window
     {
-        public UserPage()
+        public SuperUser()
         {
             InitializeComponent();
         }
@@ -48,9 +48,5 @@ namespace inzynier.Views
         {
 
         }
-
-      
     }
 }
-    
-
