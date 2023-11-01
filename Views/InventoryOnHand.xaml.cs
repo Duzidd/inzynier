@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +48,29 @@ namespace inzynier.Views
 
         private void Login_Click2(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           
+                string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+            string sql = "SELECT * FROM [Easy_erp].[dbo].[Users]";
+
+            // Tworzenie obiektu SqlDataAdapter
+            SqlDataAdapter adapter = new(sql, connection);
+
+            // Tworzenie obiektu DataTable
+            DataTable dataTable = new();
+
+            // Wypełnianie DataTable danymi z bazy danych
+            adapter.Fill(dataTable);
+
+            // Przypisanie DataTable do DataGrida
+            xyz.ItemsSource = dataTable.DefaultView;
 
         }
     }

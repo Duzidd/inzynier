@@ -123,7 +123,8 @@
 
 
             </Grid>
-            <DataGrid Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="119,26,119,56"/>
+            <DataGrid Grid.Row="1" x:Name="xyz" Margin="119,26,119,56"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="517,376,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
 
 

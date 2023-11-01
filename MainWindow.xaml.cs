@@ -53,13 +53,13 @@ namespace inzynier
             string f = txtUser.Text.Trim();
             if (f == "Admin")
             {
-                AdminPage win2 = new AdminPage();
+                AdminPage win2 = new();
                 win2.Show();
                 this.Close(); //only if you want to close the current form.
             }
             else if (f == "User")
             {
-                UserPage new44 = new UserPage();
+                UserPage new44 = new();
                 new44.Show();
                 this.Close();
 
