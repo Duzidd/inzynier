@@ -92,13 +92,13 @@
             </Grid>
 
 
-            <Button Content="Kasowanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="205,17,409,217" Grid.Row="1"/>
-            <Button Content="Dostępne zapasy" Style="{StaticResource SquareButtonStyle}" Margin="10,117,604,117" Grid.Row="1"/>
-            <Button Content="Przesuwanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="205,214,409,20" Grid.Row="1"/>
-            <Button Content="Administracja użytkownikami" Style="{StaticResource SquareButtonStyle}" Margin="584,204,10,10" Grid.Row="1"/>
+            <Button Content="Kasowanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="205,17,409,217" Grid.Row="1" Click="Button_Click_5"/>
+            <Button Content="Dostępne zapasy" Style="{StaticResource SquareButtonStyle}" Margin="10,117,604,117" Grid.Row="1" Click="Button_Click"/>
+            <Button Content="Przesuwanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="205,214,409,20" Grid.Row="1" Click="Button_Click_3"/>
+            <Button Content="Administracja użytkownikami" Style="{StaticResource SquareButtonStyle}" Margin="584,204,10,10" Grid.Row="1" Click="Button_Click_7"/>
             <Button Content="Dodawanie magazynu, lokalizacji" Style="{StaticResource SquareButtonStyle}" Margin="584,7,10,207" Grid.Row="1" RenderTransformOrigin="0.592,0.36"/>
-            <Button Content="Zmiana ilości produktu" Style="{StaticResource SquareButtonStyle}" Margin="397,17,217,217" Grid.Row="1"/>
-            <Button Content="Dodawanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="397,214,217,20" Grid.Row="1"/>
+            <Button Content="Zmiana ilości produktu" Style="{StaticResource SquareButtonStyle}" Margin="397,17,217,217" Grid.Row="1" Click="Button_Click_6"/>
+            <Button Content="Dodawanie produktów" Style="{StaticResource SquareButtonStyle}" Margin="397,214,217,20" Grid.Row="1" Click="Button_Click_4"/>
         </Grid>
     </Border>
 </Window>

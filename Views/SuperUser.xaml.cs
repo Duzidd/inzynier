@@ -31,12 +31,12 @@ namespace inzynier.Views
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Minimized;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)

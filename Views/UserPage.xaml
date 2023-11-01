@@ -123,7 +123,7 @@
 
 
             </Grid>
-            <Button Content="Dostepne zapasy" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="140" Width="217">
+            <Button Content="Dostepne zapasy" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="140" Width="217" Click="Button_Click">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#ffee33"></Setter>
@@ -139,7 +139,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Content="Dodawanie produktow" HorizontalAlignment="Left" Margin="567,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="140" Width="217">
+            <Button Content="Dodawanie produktow" HorizontalAlignment="Left" Margin="567,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="140" Width="217" Click="Button_Click_4">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#ffee33"></Setter>
@@ -156,7 +156,7 @@
                 </Button.Template>
             </Button>
 
-            <Button Content ="Przesuwanie produktow" HorizontalAlignment="Left" Margin="298,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="140" Width="217">
+            <Button Content ="Przesuwanie produktow" HorizontalAlignment="Left" Margin="298,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="140" Width="217" Click="Button_Click_3">
 
 
                 <Button.Style>

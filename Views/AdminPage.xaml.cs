@@ -48,5 +48,47 @@ namespace inzynier.Views
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            InventoryOnHand new49 = new();
+            new49.Show();
+            this.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MoveProduct new48 = new();
+            new48.Show();
+            this.Close();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            AddProduct new47 = new();
+            new47.Show();
+            this.Close();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            DeleteProduct new45 = new();
+            new45.Show();
+            this.Close();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            ChangeQuantity new46 = new();
+            new46.Show();
+            this.Close();
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            AddUser new50 = new();
+            new50.Show();
+            this.Close();
+        }
     }
 }

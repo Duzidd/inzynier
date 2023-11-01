@@ -123,77 +123,7 @@
 
 
             </Grid>
-            <StackPanel
-                    Width="250"
-                    Grid.Row="2"
-                    Orientation="Vertical"
-                    Margin="0,50,0,0">
-                <Image Source="/img/js.jpg"
-                       Width="100"
-                       Height="100">
-                </Image>
-                <TextBlock Text="Login"/>
-
-                <TextBox
-                    Background="Transparent"
-                    BorderThickness="0,0,0,2"
-                    BorderBrush="#0de3ff">
-
-                </TextBox>
-                <TextBlock Text="Password"/>
-
-                <PasswordBox
-                    Background="Transparent"
-                    BorderThickness="0,0,0,2"
-                    BorderBrush="#0de3ff">
-
-                </PasswordBox>
-
-                <Button FontSize="12"
-                        x:Name="Login"
-                        Content="LOGIN"
-                        Grid.Column="2"
-                        Margin="50" Width="55" Click="Login_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#ffee33"></Setter>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="50" Height="25"
-                                    CornerRadius="7"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-                <Button FontSize="12"
-                        x:Name="Login2"
-                        Content="LOGIN"
-                        Grid.Column="2"
-                        Margin="50" Width="55" Click="Login_Click2">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#ffee33"></Setter>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="50" Height="25"
-                                    CornerRadius="7"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-
-
-
-
-            </StackPanel>
+            <TextBox HorizontalAlignment="Left" Margin="356,119,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Kasowanie produktu" VerticalAlignment="Top" Width="120"/>
         </Grid>
 
 
