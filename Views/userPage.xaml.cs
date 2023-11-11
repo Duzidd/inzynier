@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inzynier.Temp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace inzynier.Views
         public UserPage()
         {
             InitializeComponent();
+
         }
         private void Windows_MouseDown(object sender, MouseEventArgs e)
         {
@@ -51,6 +53,7 @@ namespace inzynier.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             InventoryOnHand new49 = new();
             new49.Show();
             this.Close();
@@ -67,6 +70,13 @@ namespace inzynier.Views
         {
             AddProduct new47 = new();
             new47.Show();
+            this.Close();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            MainWindow new60 = new();
+            new60.Show();
             this.Close();
         }
     }

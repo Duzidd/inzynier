@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:inzynier"
+        xmlns:local="clr-namespace:inzynier.Temp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         WindowStyle="None"
@@ -12,7 +12,38 @@
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Windows_MouseDown">
+    <Window.Resources>
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="{TemplateBinding Width}" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SquareButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="180"/>
 
+            <Setter Property="Background" Value="#ffee33"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="7" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
     <Border CornerRadius="10"
             
             BorderThickness="3">
@@ -123,57 +154,16 @@
 
 
             </Grid>
-            <Button Content="Dostepne zapasy" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="140" Width="217" Click="Button_Click">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#ffee33"></Setter>
-                    </Style>
-                </Button.Style>
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="150" Height="125"
-                                    CornerRadius="7"
-                                    Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Button Content="Dodawanie produktow" HorizontalAlignment="Left" Margin="567,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="140" Width="217" Click="Button_Click_4">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#ffee33"></Setter>
-                    </Style>
-                </Button.Style>
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="150" Height="125"
-                                    CornerRadius="7"
-                                    Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+            <Button Content="Dostepne zapasy" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="10,23,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click"/>
 
-            <Button Content ="Przesuwanie produktow" HorizontalAlignment="Left" Margin="298,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="140" Width="217" Click="Button_Click_3">
+            <Button Content="Dodawanie produktow"  Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="567,23,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_4"/>
 
 
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#ffee33"></Setter>
-                    </Style>
-                </Button.Style>
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="150" Height="125"
-                                    CornerRadius="7"
-                                    Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+            <Button Content ="Przesuwanie produktow" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="10,207,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_3"/>
+            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="567,207,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_5"/>
+            
+            <TextBlock HorizontalAlignment="Center" Margin="0,163,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{x:Static local:IsAdmin.IsAdminn}" VerticalAlignment="Top"/>
+
 
 
         </Grid>

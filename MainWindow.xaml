@@ -11,7 +11,9 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseDown="Windows_MouseDown">
+        MouseDown="Windows_MouseDown"
+        >
+    
         
     <Border CornerRadius="10"
             
@@ -147,9 +149,9 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     BorderBrush="#0de3ff">
-                    
+
                 </PasswordBox>
-                
+
                 <Button FontSize="12"
                         x:Name="Login"
                         Content="LOGIN"
@@ -170,12 +172,14 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                
+
 
 
 
             </StackPanel>
             <Button Content="Test bazy" HorizontalAlignment="Left" Margin="630,147,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
+            
+            
         </Grid>
 
 

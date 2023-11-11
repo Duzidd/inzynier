@@ -90,5 +90,12 @@ namespace inzynier.Views
             new50.Show();
             this.Close();
         }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            MainWindow new60 = new();
+            new60.Show();
+            this.Close();
+        }
     }
 }

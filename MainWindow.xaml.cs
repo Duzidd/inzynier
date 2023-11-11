@@ -1,4 +1,5 @@
-﻿using inzynier.Views;
+﻿using inzynier.Temp;
+using inzynier.Views;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -51,20 +52,31 @@ namespace inzynier
         {
 
             string f = txtUser.Text.Trim();
+           
             if (f == "Admin")
             {
+                IsAdmin.IsAdminn = "Admin";
                 AdminPage win2 = new();
                 win2.Show();
                 this.Close(); //only if you want to close the current form.
             }
             else if (f == "User")
             {
+                IsAdmin.IsAdminn = "User";
                 UserPage new44 = new();
                 new44.Show();
                 this.Close();
+                
 
 
 
+            }
+            else if (f == "Super")
+            {
+                IsAdmin.IsAdminn = "Super";
+                SuperUser new61 = new();
+                new61.Show();
+                this.Close();
             }
             else
             {
