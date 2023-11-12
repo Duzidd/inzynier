@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inzynier.Temp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,24 +30,36 @@ namespace inzynier.Views
                 DragMove();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Minimized;
         }
 
-        private void Login_Click2(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if (IsAdmin.IsAdminn == "Admin")
+            {
+                AdminPage win2 = new();
+                win2.Show();
+                this.Close(); //only if you want to close the current form.
+            }
+            else if (IsAdmin.IsAdminn == "User")
+            {
+                UserPage new44 = new();
+                new44.Show();
+                this.Close();
+            }
+            else
+            {
+                SuperUser new61 = new();
+                new61.Show();
+                this.Close();
+            }
         }
     }
 }

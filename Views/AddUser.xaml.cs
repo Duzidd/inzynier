@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,31 @@ namespace inzynier.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            // Odczytanie wartości z TextBoxów
+            string Login = LoginBox.Text;
+            string Password = PasswordBox.Text;
+            string FirstName = Role_CBox.Text;
+            string SecondName = First_NameBox.Text;
+            string Role = Second_NameBox.Text;
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            // Polecenie SQL do wstawienia danych
+            string sql = $"INSERT INTO [inz_xd].[dbo].[Users] ([First_Name], [Second_Name], [Role], [Login], [Password]) VALUES ('{FirstName}', '{SecondName}','{Role}','{Login}','{Password}')";
+
+            // Wykonanie polecenia SQL
+            SqlCommand command = new(sql, connection);
+            command.ExecuteNonQuery();
+
+            // Aktualizowanie danych w DataGridu
+            // RefreshDataGrid();
 
         }
     }

@@ -160,8 +160,8 @@
 
 
             <Button Content ="Przesuwanie produktow" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="10,207,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_3"/>
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="567,207,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_5"/>
-            
+            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="567,192,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_5"/>
+
             <TextBlock HorizontalAlignment="Center" Margin="0,163,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{x:Static local:IsAdmin.IsAdminn}" VerticalAlignment="Top"/>
 
 

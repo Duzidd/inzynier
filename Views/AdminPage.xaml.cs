@@ -39,15 +39,7 @@ namespace inzynier.Views
             Application.Current.Shutdown();
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Login_Click2(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -95,6 +87,13 @@ namespace inzynier.Views
         {
             MainWindow new60 = new();
             new60.Show();
+            this.Close();
+        }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            WarehouseManagement new65 = new();
+            new65.Show();
             this.Close();
         }
     }

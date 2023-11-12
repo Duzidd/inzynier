@@ -156,7 +156,7 @@
 
             </Grid>
             <TextBox HorizontalAlignment="Left" Margin="356,119,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Kasowanie produktu" VerticalAlignment="Top" Width="120"/>
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="604,102,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="604,102,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
 
 
