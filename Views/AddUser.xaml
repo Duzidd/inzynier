@@ -157,17 +157,22 @@
             </Grid>
 
             <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="604,224,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
-            <TextBox Name="LoginBox" HorizontalAlignment="Left" Margin="70,26,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="120"/>
-            <TextBox Name="PasswordBox" HorizontalAlignment="Left" Margin="70,62,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Hasło" VerticalAlignment="Top" Width="120"/>
+            <TextBox Name="LoginBox" HorizontalAlignment="Left" Margin="139,27,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+            <PasswordBox  Name="PasswordBox" HorizontalAlignment="Left" Margin="139,62,0,0" Grid.Row="1"   VerticalAlignment="Top" Width="120"/>
             <Button Content="Add User" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="10,224,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
-            <ComboBox Name="Role_CBox" HorizontalAlignment="Left" Margin="70,154,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" 
+            <ComboBox Name="Role_CBox" HorizontalAlignment="Left" Margin="139,161,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" 
                >
-                <ComboBoxItem Content="Opcja 1" />
-                <ComboBoxItem Content="Opcja 2" />
-                <ComboBoxItem Content="Opcja 3" />
+                <ComboBoxItem Content="Admin" />
+                <ComboBoxItem Content="SuperUser" />
+                <ComboBoxItem Content="User" />
             </ComboBox>
-            <TextBox Name="First_NameBox" HorizontalAlignment="Left" Margin="70,91,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="120"/>
-            <TextBox Name="Second_NameBox" HorizontalAlignment="Left" Margin="70,122,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="120"/>
+            <TextBox Name="First_NameBox" HorizontalAlignment="Left" Margin="139,99,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+            <TextBox Name="Second_NameBox" HorizontalAlignment="Left" Margin="139,131,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+            <Label Content="Login" HorizontalAlignment="Left" Margin="81,23,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <Label Content="Rola" HorizontalAlignment="Left" Margin="81,159,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="71,127,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <Label Content="Imię" HorizontalAlignment="Left" Margin="81,95,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <Label Content="Hasło" HorizontalAlignment="Left" Margin="81,58,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
 
         </Grid>

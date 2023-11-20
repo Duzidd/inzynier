@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inzynier.Temp;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -53,13 +54,31 @@ namespace inzynier.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+            if (IsAdmin.IsAdminn == "Admin")
+            {
+                AdminPage win2 = new();
+                win2.Show();
+                this.Close(); //only if you want to close the current form.
+            }
+            else if (IsAdmin.IsAdminn == "User")
+            {
+                UserPage new44 = new();
+                new44.Show();
+                this.Close();
+            }
+            else
+            {
+                SuperUser new61 = new();
+                new61.Show();
+                this.Close();
+            }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             // Odczytanie wartości z TextBoxów
             string Login = LoginBox.Text;
-            string Password = PasswordBox.Text;
+            string Password = PasswordBox.Password;
             string FirstName = Role_CBox.Text;
             string SecondName = First_NameBox.Text;
             string Role = Second_NameBox.Text;
@@ -77,6 +96,11 @@ namespace inzynier.Views
 
             // Aktualizowanie danych w DataGridu
             // RefreshDataGrid();
+
+        }
+
+        private void LoginBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inzynier.Temp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,6 +53,24 @@ namespace inzynier.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+            if (IsAdmin.IsAdminn == "Admin")
+            {
+                AdminPage win2 = new();
+                win2.Show();
+                this.Close(); //only if you want to close the current form.
+            }
+            else if (IsAdmin.IsAdminn == "User")
+            {
+                UserPage new44 = new();
+                new44.Show();
+                this.Close();
+            }
+            else
+            {
+                SuperUser new61 = new();
+                new61.Show();
+                this.Close();
+            }
         }
     }
 }
