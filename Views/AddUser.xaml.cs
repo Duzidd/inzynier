@@ -1,6 +1,7 @@
 ﻿using inzynier.Temp;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,28 @@ namespace inzynier.Views
         public AddUser()
         {
             InitializeComponent();
+            Loaded += Window_Loaded;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Tutaj umieść kod, który chcesz wykonać przy inicjalizacji okna
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+            string sql = "SELECT TOP (1000) [First_Name],[Second_Name],[Role],[Login],[Password] FROM [inz_xd].[dbo].[Users]";
+
+            // Tworzenie obiektu SqlDataAdapter
+            SqlDataAdapter adapter = new(sql, connection);
+
+            // Tworzenie obiektu DataTable
+            DataTable dataTable = new();
+
+            // Wypełnianie DataTable danymi z bazy danych
+            adapter.Fill(dataTable);
+
+            // Przypisanie DataTable do DataGrida
+            xyz.ItemsSource = dataTable.DefaultView;
         }
         private void Windows_MouseDown(object sender, MouseEventArgs e)
         {
@@ -79,9 +102,9 @@ namespace inzynier.Views
             // Odczytanie wartości z TextBoxów
             string Login = LoginBox.Text;
             string Password = PasswordBox.Password;
-            string FirstName = Role_CBox.Text;
-            string SecondName = First_NameBox.Text;
-            string Role = Second_NameBox.Text;
+            string FirstName = First_NameBox.Text;
+            string SecondName = Second_NameBox.Text;
+            string Role = Role_CBox.Text;
             string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
 
             using SqlConnection connection = new(connectionString);
@@ -95,13 +118,57 @@ namespace inzynier.Views
             command.ExecuteNonQuery();
 
             // Aktualizowanie danych w DataGridu
-            // RefreshDataGrid();
+            RefreshData();
+
 
         }
 
+        private void RefreshData()
+        {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT TOP (1000) [First_Name],[Second_Name],[Role],[Login],[Password] FROM [inz_xd].[dbo].[Users]";
+
+                // Tworzenie obiektu SqlDataAdapter
+                SqlDataAdapter adapter = new(sql, connection);
+
+                // Tworzenie obiektu DataTable
+                DataTable dataTable = new();
+
+                // Wypełnianie DataTable danymi z bazy danych
+                adapter.Fill(dataTable);
+
+                // Przypisanie DataTable do DataGrida
+                xyz.ItemsSource = dataTable.DefaultView;
+            }
+        }
         private void LoginBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+            string sql = "SELECT TOP (1000) [First_Name],[Second_Name],[Role],[Login],[Password] FROM [inz_xd].[dbo].[Users]";
+
+            // Tworzenie obiektu SqlDataAdapter
+            SqlDataAdapter adapter = new(sql, connection);
+
+            // Tworzenie obiektu DataTable
+            DataTable dataTable = new();
+
+            // Wypełnianie DataTable danymi z bazy danych
+            adapter.Fill(dataTable);
+ 
+            // Przypisanie DataTable do DataGrida
+            xyz.ItemsSource = dataTable.DefaultView;
         }
     }
 }

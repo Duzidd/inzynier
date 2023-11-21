@@ -2,6 +2,7 @@
 using inzynier.Views;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace inzynier
 {
@@ -50,38 +52,96 @@ namespace inzynier
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-
-            string f = txtUser.Text.Trim();
-           
-            if (f == "Admin")
+            SqlConnection sqlCon = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+            try
             {
-                IsAdmin.IsAdminn = "Admin";
-                AdminPage win2 = new();
-                win2.Show();
-                this.Close(); //only if you want to close the current form.
-            }
-            else if (f == "User")
-            {
-                IsAdmin.IsAdminn = "User";
-                UserPage new44 = new();
-                new44.Show();
-                this.Close();
-                
+                if (sqlCon.State == ConnectionState.Closed)
+                    sqlCon.Open();
 
 
+                String query = "SELECT COUNT(1) FROM [inz_xd].[dbo].[Users] WHERE Login=@Username AND Password=@Password";
+                String query2 = "SELECT Role FROM [inz_xd].[dbo].[Users] WHERE Login=@Username AND Password=@Password";
+
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);
+                sqlCmd.CommandType = CommandType.Text;
+                sqlCmd.Parameters.AddWithValue("@Username", txtUser.Text);
+                sqlCmd.Parameters.AddWithValue("@Password", passwordBox.Password);
+                sqlCmd2.Parameters.AddWithValue("@Username", txtUser.Text);
+                sqlCmd2.Parameters.AddWithValue("@Password", passwordBox.Password);
+                int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
+                string count2 = Convert.ToString(sqlCmd2.ExecuteScalar());
+                //trzeba dodać zapytanie które wybierze z bazy  rolę
+                if (count2 == "Admin")
+                {
+                    AdminPage win2 = new();
+                    win2.Show();
+                    this.Close();
+                }
+                else if (count2 == "SuperUser")
+                {
+                    SuperUser new4 = new();
+                    new4.Show();
+                    this.Close();
+                }
+                else if (count2 == "User")
+                {
+                    UserPage new44 = new();
+                    new44.Show();
+                    this.Close();
+                }
+                else 
+                { MessageBox.Show("Błędne dane"); }
+
+
+                /*string login=txtUser.Text.Trim();
+                string passwordd = passwordBox.SecurePassword;*/
+                /*
+                            string f = txtUser.Text.Trim();
+
+                            if (f == "Admin")
+                            {
+                                IsAdmin.IsAdminn = "Admin";
+                                AdminPage win2 = new();
+                                win2.Show();
+                                this.Close(); //only if you want to close the current form.
+                            }
+                            else if (f == "User")
+                            {
+                                IsAdmin.IsAdminn = "User";
+                                UserPage new44 = new();
+                                new44.Show();
+                                this.Close();
+
+
+
+
+                            }
+                            else if (f == "Super")
+                            {
+                                IsAdmin.IsAdminn = "Super";
+                                SuperUser new61 = new();
+                                new61.Show();
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Błędne dane");
+                            }*/
+
+                //  select * from Users where Login ='31' and Password ='1'
+
 
             }
-            else if (f == "Super")
+            catch (Exception ex)
             {
-                IsAdmin.IsAdminn = "Super";
-                SuperUser new61 = new();
-                new61.Show();
-                this.Close();
+                MessageBox.Show(ex.Message);
             }
-            else
+            finally
             {
-                MessageBox.Show("Błędne dane");
+                sqlCon.Close();
             }
+
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)

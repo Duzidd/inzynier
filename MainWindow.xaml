@@ -146,6 +146,7 @@
                 <TextBlock Text="Password"/>
 
                 <PasswordBox
+                    Name="passwordBox"
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     BorderBrush="#0de3ff">
