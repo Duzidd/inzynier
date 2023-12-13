@@ -74,18 +74,21 @@ namespace inzynier
                 //trzeba dodać zapytanie które wybierze z bazy  rolę
                 if (count2 == "Admin")
                 {
+                    IsAdmin.IsAdminn = "Admin";
                     AdminPage win2 = new();
                     win2.Show();
                     this.Close();
                 }
                 else if (count2 == "SuperUser")
                 {
+                    IsAdmin.IsAdminn = "Super";
                     SuperUser new4 = new();
                     new4.Show();
                     this.Close();
                 }
                 else if (count2 == "User")
                 {
+                    IsAdmin.IsAdminn = "User";
                     UserPage new44 = new();
                     new44.Show();
                     this.Close();
