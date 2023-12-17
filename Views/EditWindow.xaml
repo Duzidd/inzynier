@@ -5,11 +5,20 @@
     <Grid>
         <!-- Dodaj kontrolki do edycji wartości -->
         <StackPanel Margin="10">
-            <Label Content="Pole 1:"/>
-            <TextBox x:Name="textBoxValue1"/>
+            <Label Content="Id:"/>
+            <TextBox x:Name="textBoxId"/>
 
-            <Label Content="Pole 2:"/>
-            <TextBox x:Name="textBoxValue2"/>
+            <Label Content="Name:"/>
+            <TextBox x:Name="textBoxName"/>
+
+            <Label Content="Location:"/>
+            <TextBox x:Name="textBoxLocation"/>
+
+            <Label Content="Hight:"/>
+            <TextBox x:Name="textBoxHight"/>
+
+            <Label Content="Width:"/>
+            <TextBox x:Name="textBoxWidth"/>
 
             <Button Content="Zapisz" Click="SaveButton_Click"/>
         </StackPanel>

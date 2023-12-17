@@ -1,19 +1,9 @@
 ﻿using inzynier.Temp;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace inzynier.Views
 {
@@ -166,7 +156,7 @@ namespace inzynier.Views
 
             // Wypełnianie DataTable danymi z bazy danych
             adapter.Fill(dataTable);
- 
+
             // Przypisanie DataTable do DataGrida
             xyz.ItemsSource = dataTable.DefaultView;
         }

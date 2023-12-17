@@ -1,19 +1,8 @@
 ﻿using inzynier.Temp;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace inzynier.Views
 {
@@ -22,9 +11,33 @@ namespace inzynier.Views
     /// </summary>
     public partial class AddProduct : Window
     {
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Tutaj umieść kod, który chcesz wykonać przy inicjalizacji okna
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+            string sql = "SELECT  [Id],[Name]   ,[Location]  ,[Hight]   ,[Width] FROM [inz_xd].[dbo].[Products_inz]";
+
+            // Tworzenie obiektu SqlDataAdapter
+            SqlDataAdapter adapter = new(sql, connection);
+
+            // Tworzenie obiektu DataTable
+            DataTable dataTable = new();
+
+            // Wypełnianie DataTable danymi z bazy danych
+            adapter.Fill(dataTable);
+
+            // Przypisanie DataTable do DataGrida
+            gri.ItemsSource = dataTable.DefaultView;
+        }
         public AddProduct()
         {
             InitializeComponent();
+            Loaded += Window_Loaded;
         }
         private void Windows_MouseDown(object sender, MouseEventArgs e)
         {
@@ -128,7 +141,7 @@ namespace inzynier.Views
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT TOP (1000) [Id]\r\n      ,[Name]\r\n      ,[Location]\r\n      ,[Hight]\r\n      ,[Width]\r\n  FROM [inz_xd].[dbo].[Products_inz]";
+                string sql = "SELECT  [Id]\r\n      ,[Name]\r\n      ,[Location]\r\n      ,[Hight]\r\n      ,[Width]\r\n  FROM [inz_xd].[dbo].[Products_inz]";
 
                 // Tworzenie obiektu SqlDataAdapter
                 SqlDataAdapter adapter = new(sql, connection);

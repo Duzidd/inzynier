@@ -159,7 +159,7 @@
             <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="604,102,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click" />
             <TextBox x:Name="Warehouse" HorizontalAlignment="Left" Margin="97,121,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="Location" HorizontalAlignment="Left" Margin="97,192,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-            <DataGrid x:Name="War" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="233,33,257,69"/>
+            <DataGrid IsReadOnly="True" x:Name="War" Grid.Row="1"  Margin="233,33,257,69" />
             <Button Content="Dodaj" HorizontalAlignment="Left" Margin="139,267,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
             <Label Content="Magazyn" HorizontalAlignment="Left" Margin="29,117,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             <Label Content="Lokalizacja" HorizontalAlignment="Left" Margin="25,189,0,0" Grid.Row="1" VerticalAlignment="Top"/>

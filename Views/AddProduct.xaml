@@ -166,7 +166,7 @@
             <Label Content="Lokalizacja" HorizontalAlignment="Left" Margin="47,188,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             <Label Content="Wysokość" HorizontalAlignment="Left" Margin="47,229,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             <Label Content="Szerokość" HorizontalAlignment="Left" Margin="47,260,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-            <DataGrid Grid.Row="1" Name="gri" Margin="336,59,250,215"/>
+            <DataGrid Grid.Row="1" Name="gri" Margin="336,59,250,215" IsReadOnly="True" />
             <Button Content="Dodaj przedmiot" HorizontalAlignment="Left" Margin="375,216,0,0" Grid.Row="1" VerticalAlignment="Top" Height="43" Width="96" Click="Button_Click_3"/>
         </Grid>
 

@@ -1,20 +1,8 @@
 ﻿using inzynier.Temp;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using inzynier; // Zastąp "inzynier" rzeczywistą nazwą przestrzeni nazw
 
 
 namespace inzynier.Views
@@ -58,25 +46,46 @@ namespace inzynier.Views
         {
             string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
 
-            using SqlConnection connection = new(connectionString);
-            connection.Open();
-            string sql = "SELECT * FROM [inz_xd].[dbo].[Tabela_testowa]";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT TOP (1000) [Id],[Name],[Location],[Hight],[Width] FROM [inz_xd].[dbo].[Products_inz]";
 
-            // Tworzenie obiektu SqlDataAdapter
-            SqlDataAdapter adapter = new(sql, connection);
+                SqlDataAdapter adapter = new(sql, connection);
+                DataTable dataTable = new();
 
-            // Tworzenie obiektu DataTable
-            DataTable dataTable = new();
+                adapter.Fill(dataTable);
 
-            // Wypełnianie DataTable danymi z bazy danych
-            adapter.Fill(dataTable);
+                // Wyczyść istniejące elementy przed ustawieniem ItemsSource
+                xyz.ItemsSource = null;
+                xyz.Items.Clear();
 
-            // Wyczyść istniejące elementy z kolekcji Items w DataGrid
-            xyz.Items.Clear();
-
-            // Przypisanie DataTable do DataGrida
-            xyz.ItemsSource = dataTable.DefaultView;
+                // Przypisz DataTable do ItemsSource, co zastąpi poprzednie dane
+                xyz.ItemsSource = dataTable.DefaultView;
+            }
         }
+
+
+        private void RefreshData()
+        {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT TOP (1000) [Id],[Name],[Location],[Hight],[Width] FROM [inz_xd].[dbo].[Products_inz]";
+
+                SqlDataAdapter adapter = new(sql, connection);
+                DataTable dataTable = new();
+                adapter.Fill(dataTable);
+
+                // Przypisz DataTable do ItemsSource, co zastąpi poprzednie dane
+                xyz.ItemsSource = dataTable.DefaultView;
+            }
+        }
+
+
+
 
 
 
@@ -92,7 +101,7 @@ namespace inzynier.Views
                 win2.Show();
                 this.Close(); //only if you want to close the current form.
             }
-            else if(IsAdmin.IsAdminn == "User")
+            else if (IsAdmin.IsAdminn == "User")
             {
                 UserPage new44 = new();
                 new44.Show();
@@ -104,28 +113,10 @@ namespace inzynier.Views
                 new61.Show();
                 this.Close();
             }
-            
+
         }
 
-        private void RefreshData()
-        {
-            // Tutaj dodaj kod do odświeżania danych w DataGrid
-            // Możesz powtórzyć kod, który używasz do wczytania danych po naciśnięciu przycisku
-            // na przykład, kod z metody Button_Click
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                string sql = "SELECT * FROM [inz_xd].[dbo].[Tabela_testowa]";
-
-                SqlDataAdapter adapter = new(sql, connection);
-                DataTable dataTable = new();
-                adapter.Fill(dataTable);
-
-                xyz.ItemsSource = dataTable.DefaultView;
-            }
-        }
 
 
         private void Edit(object sender, RoutedEventArgs e)
@@ -135,41 +126,41 @@ namespace inzynier.Views
 
             if (selectedRow != null)
             {
-                // Pobierz wartości pól do edycji
-                string value1 = selectedRow["pole1"].ToString();
-                string value2 = selectedRow["pole2"].ToString();
+                string valueId = selectedRow["Id"].ToString();
+                string valueName = selectedRow["Name"].ToString();
+                string valueLocation = selectedRow["Location"].ToString();
+                string valueHight = selectedRow["Hight"].ToString();
+                string valueWidth = selectedRow["Width"].ToString();
 
-                // Tutaj możesz otworzyć okno edycji lub inne kontrole do edycji danych
-                // i przekazać wybrane dane do edycji
-                // Na przykład:
-                EditWindow editWindow = new EditWindow(value1, value2);
+                EditWindow editWindow = new EditWindow(valueId, valueName, valueLocation, valueHight, valueWidth);
                 editWindow.ShowDialog();
 
-                // Pobierz zaktualizowane wartości z okna edycji
-                string editedValue1 = editWindow.EditedValue1;
-                string editedValue2 = editWindow.EditedValue2;
+                string editedValueHight = editWindow.EditedHight;
+                string editedValueId = editWindow.EditedId;
+                string editedValueName = editWindow.EditedName;
+                string editedValueLocation = editWindow.EditedLocation;
+                string editedValueWidth = editWindow.EditedWidth;
 
-                // Po edycji zaktualizuj bazę danych
-                // Przykładowy kod (edytuj go zgodnie z własnymi potrzebami):
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string updateSql = "UPDATE [inz_xd].[dbo].[Tabela_testowa] SET pole1=@Value1, pole2=@Value2 WHERE pole1=@Klucz";
+                    string updateSql = "UPDATE [inz_xd].[dbo].[Products_inz] SET Name=@ValueName, Location=@ValueLocation, Hight=@ValueHight, Width=@ValueWidth WHERE Id=@ValueId";
 
                     using (SqlCommand cmd = new SqlCommand(updateSql, connection))
                     {
-                        // Przypisz nowe wartości parametrów SQL na podstawie edytowanych danych
-                        cmd.Parameters.AddWithValue("@Value1", editedValue1);
-                        cmd.Parameters.AddWithValue("@Value2", editedValue2);
-                        cmd.Parameters.AddWithValue("@Klucz", selectedRow["pole1"]); // Zastąp "KolumnaKluczowa" nazwą rzeczywistej kolumny klucza
+                        cmd.Parameters.AddWithValue("@ValueId", editedValueId);
+                        cmd.Parameters.AddWithValue("@ValueName", editedValueName);
+                        cmd.Parameters.AddWithValue("@ValueLocation", editedValueLocation);
+                        cmd.Parameters.AddWithValue("@ValueHight", editedValueHight);
+                        cmd.Parameters.AddWithValue("@ValueWidth", editedValueWidth);
                         cmd.ExecuteNonQuery();
                     }
                 }
 
-                // Odśwież dane w DataGrid po edycji
                 RefreshData();
             }
         }
+
 
 
     }

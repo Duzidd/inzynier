@@ -1,17 +1,8 @@
 ﻿using inzynier.Temp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace inzynier.Views
 {
@@ -69,6 +60,62 @@ namespace inzynier.Views
                 SuperUser new61 = new();
                 new61.Show();
                 this.Close();
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+            string sql = "SELECT [Id],[Name],[Location],[Hight],[Width] FROM [inz_xd].[dbo].[Products_inz];";
+
+            // Tworzenie obiektu SqlDataAdapter
+            SqlDataAdapter adapter = new(sql, connection);
+
+            // Tworzenie obiektu DataTable
+            DataTable dataTable = new();
+
+            // Wypełnianie DataTable danymi z bazy danych
+            adapter.Fill(dataTable);
+
+            // Przypisanie DataTable do DataGrida
+            deletee.ItemsSource = dataTable.DefaultView;
+        }
+
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+            // Sprawdź, czy coś jest zaznaczone
+            if (deletee.SelectedItem != null)
+            {
+                // Pobierz zaznaczony rekord
+                DataRowView selectedRow = (DataRowView)deletee.SelectedItem;
+
+                // Pobierz wartość klucza głównego (przykładowo, ID) z zaznaczonego rekordu
+                int idToDelete = (int)selectedRow["Id"]; // Zastąp "ID" odpowiednią nazwą kolumny klucza głównego
+
+                // Usuń rekord z bazy danych lub innej struktury danych
+                // Przykład: Jeśli korzystasz z ObservableCollection
+                // yourObservableCollection.Remove(selectedRecord);
+
+                // Usuń rekord z bazy danych (przykładowe zapytanie SQL)
+                string deleteSql = $"DELETE  FROM [inz_xd].[dbo].[Products_inz] WHERE Id = {idToDelete}";
+
+                using SqlConnection deleteConnection = new(connectionString);
+                deleteConnection.Open();
+
+                SqlCommand deleteCommand = new(deleteSql, deleteConnection);
+                deleteCommand.ExecuteNonQuery();
+
+                // Odśwież widok DataGrid
+                Button_Click_3(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Wybierz rekord do usunięcia.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -1,40 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Windows;
+﻿using System.Windows;
 
 namespace inzynier
 {
     public partial class EditWindow : Window
     {
-        public string EditedValue1 { get; private set; }
-        public string EditedValue2 { get; private set; }
+        // Dodaj właściwości dla wszystkich pól, które chcesz edytować
+        public string EditedId { get; private set; }
+        public string EditedName { get; private set; }
+        public string EditedLocation { get; private set; }
+        public string EditedHight { get; private set; }
+        public string EditedWidth { get; private set; }
 
-        public EditWindow(string value1, string value2)
+        public EditWindow(string id, string name, string location, string hight, string width)
         {
             InitializeComponent();
-            textBoxValue1.Text = value1;
-            textBoxValue2.Text = value2;
+
+            // Przypisz wartości do kontrolek w oknie edycji
+            textBoxId.Text = id;
+            textBoxName.Text = name;
+            textBoxLocation.Text = location;
+            textBoxHight.Text = hight;
+            textBoxWidth.Text = width;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             // Pobierz edytowane wartości z kontrolek
-            EditedValue1 = textBoxValue1.Text;
-            EditedValue2 = textBoxValue2.Text;
+            EditedId = textBoxId.Text;
+            EditedName = textBoxName.Text;
+            EditedLocation = textBoxLocation.Text;
+            EditedHight = textBoxHight.Text;
+            EditedWidth = textBoxWidth.Text;
 
             // Zamknij okno po zapisie
             Close();
         }
     }
 }
+

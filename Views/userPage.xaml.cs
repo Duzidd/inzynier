@@ -1,17 +1,5 @@
-﻿using inzynier.Temp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace inzynier.Views
 {
@@ -53,7 +41,7 @@ namespace inzynier.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
             InventoryOnHand new49 = new();
             new49.Show();
             this.Close();
@@ -81,5 +69,5 @@ namespace inzynier.Views
         }
     }
 }
-    
+
 
