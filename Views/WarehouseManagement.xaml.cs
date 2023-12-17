@@ -1,6 +1,8 @@
 ﻿using inzynier.Temp;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 
 namespace inzynier.Views
@@ -59,6 +62,78 @@ namespace inzynier.Views
                 SuperUser new61 = new();
                 new61.Show();
                 this.Close();
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            // Odczytanie wartości z TextBoxów
+            string Namee = Warehouse.Text;
+            string Locationn = Location.Text;
+
+            // Sprawdzenie, czy pola nie są puste
+            if (string.IsNullOrWhiteSpace(Namee) || string.IsNullOrWhiteSpace(Locationn))
+            {
+                MessageBox.Show("Wypełnij wszystkie pola przed dodaniem do bazy danych.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return; // Przerwanie działania metody, jeśli pola są puste
+            }
+
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            // Polecenie SQL do wstawienia danych
+            string sql = $"INSERT INTO [inz_xd].[dbo].[Warehouse] ([Warehouse], [Location]) VALUES" +
+                         $" ('{Namee}','{Locationn}');";
+
+            try
+            {
+                // Wykonanie polecenia SQL
+                SqlCommand command = new(sql, connection);
+                command.ExecuteNonQuery();
+
+                // Aktualizowanie danych w DataGridu
+                RefreshData();
+
+                // Wyczyszczenie pola Location po dodaniu rekordu
+                Location.Text = string.Empty;
+            }
+            catch (SqlException ex)
+            {
+                // Obsługa sytuacji, gdy próbujemy dodać rekord o istniejącej już wartości w kolumnie Location
+                if (ex.Number == 2627) // Numer błędu dla duplikatu klucza
+                {
+                    MessageBox.Show("Rekord o podanej lokalizacji już istnieje.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    MessageBox.Show($"Błąd SQL: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+
+        private void RefreshData()
+        {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT TOP (1000) [Warehouse],[Location]FROM [inz_xd].[dbo].[Warehouse]";
+
+                // Tworzenie obiektu SqlDataAdapter
+                SqlDataAdapter adapter = new(sql, connection);
+
+                // Tworzenie obiektu DataTable
+                DataTable dataTable = new();
+
+                // Wypełnianie DataTable danymi z bazy danych
+                adapter.Fill(dataTable);
+
+                // Przypisanie DataTable do DataGrida
+                War.ItemsSource = dataTable.DefaultView;
             }
         }
     }

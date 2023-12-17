@@ -78,19 +78,40 @@ namespace inzynier.Views
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             // Odczytanie wartości z TextBoxów
-            //string Id_produkt = id_produkt.Text;
             string Namee = namee.Text;
             string Location = location.Text;
             string Hight = hight.Text;
             string Width = width.Text;
+
+            // Sprawdzenie czy pola są uzupełnione
+            if (string.IsNullOrEmpty(Namee) || string.IsNullOrEmpty(Location) || string.IsNullOrEmpty(Hight) || string.IsNullOrEmpty(Width))
+            {
+                MessageBox.Show("Wypełnij wszystkie pola przed dodaniem produktu.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return; // Przerwij dodawanie rekordu, jeśli jakieś pole jest puste
+            }
+
+            // Walidacja czy Height to liczba
+            if (!int.TryParse(Hight, out int heightValue))
+            {
+                MessageBox.Show("Wprowadź poprawną wartość dla pola 'Height'.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Walidacja czy Width to liczba
+            if (!int.TryParse(Width, out int widthValue))
+            {
+                MessageBox.Show("Wprowadź poprawną wartość dla pola 'Width'.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
             // Polecenie SQL do wstawienia danych
-            string sql = $"INSERT INTO [inz_xd].[dbo].[Products_inz] ([Name], [Location], [Hight], [Width])VALUES" +
-                $" ('{namee.Text}','{location.Text}','{hight.Text}','{width.Text}');";
+            string sql = $"INSERT INTO [inz_xd].[dbo].[Products_inz] ([Name], [Location], [Hight], [Width]) VALUES" +
+                $" ('{Namee}','{Location}',{heightValue},{widthValue});";
 
             // Wykonanie polecenia SQL
             SqlCommand command = new(sql, connection);
@@ -99,6 +120,7 @@ namespace inzynier.Views
             // Aktualizowanie danych w DataGridu
             RefreshData();
         }
+
         private void RefreshData()
         {
             string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
