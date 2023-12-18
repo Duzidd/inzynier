@@ -14,6 +14,7 @@ namespace inzynier.Views
         public DeleteProduct()
         {
             InitializeComponent();
+            Button_Click_3(null, null);
         }
         private void Windows_MouseDown(object sender, MouseEventArgs e)
         {

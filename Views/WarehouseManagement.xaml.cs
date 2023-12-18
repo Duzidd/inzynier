@@ -14,6 +14,7 @@ namespace inzynier.Views
         public WarehouseManagement()
         {
             InitializeComponent();
+            RefreshData();
         }
         private void Windows_MouseDown(object sender, MouseEventArgs e)
         {

@@ -155,7 +155,7 @@
 
             </Grid>
 
-            <DataGrid Grid.Row="1" x:Name="xyz" Margin="119,30,230,60" CanUserAddRows="True" IsReadOnly="False" AutoGenerateColumns="True">
+            <DataGrid Grid.Row="1" x:Name="xyz" Margin="119,30,230,60" CanUserAddRows="True" IsReadOnly="True" AutoGenerateColumns="True">
                 <!-- Inne kolumny DataGrida -->
 
                 <!-- Kolumna z przyciskiem "Edytuj" -->

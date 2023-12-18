@@ -15,6 +15,7 @@ namespace inzynier.Views
         public InventoryOnHand()
         {
             InitializeComponent();
+           // RefreshData();
         }
         private void Windows_MouseDown(object sender, MouseEventArgs e)
         {
@@ -83,13 +84,6 @@ namespace inzynier.Views
                 xyz.ItemsSource = dataTable.DefaultView;
             }
         }
-
-
-
-
-
-
-
 
 
 

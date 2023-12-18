@@ -156,7 +156,7 @@
 
             </Grid>
             <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="604,102,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
-            <DataGrid Grid.Row="1"  Margin="131,44,275,74" Name="deletee"/>
+            <DataGrid IsReadOnly="True" Grid.Row="1"  Margin="131,44,275,74" Name="deletee"/>
             <Button Content="pokaż dane" HorizontalAlignment="Left" Margin="261,365,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
             <Button Content="skasuj item" HorizontalAlignment="Left" Margin="418,375,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_4"/>
         </Grid>
