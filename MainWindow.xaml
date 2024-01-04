@@ -9,33 +9,50 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Background="Transparent"
+        Background="#FF2D2D30"
         AllowsTransparency="True"
         MouseDown="Windows_MouseDown"
         >
-    
-        
-    <Border CornerRadius="10"
-            
-            BorderThickness="3">
-        <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#462ad8" Offset="0"/>
-                    <GradientStop Color="#ff05da" Offset="0.5"/>
-                    <GradientStop Color="#ff052f" Offset="1"/>
-            </LinearGradientBrush> 
-                
-            </Border.BorderBrush>
-        <Border.Background>
-            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                <GradientStop Color="#462ad8" Offset="0"/>
-                <GradientStop Color="#ff052f" Offset="1"/>
-                <GradientStop Color="#ff05da" Offset="0.5"/>
-                
-            </LinearGradientBrush>
+    <Window.Resources>
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="{TemplateBinding Width}" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-        </Border.Background>
-        
+        <Style x:Key="SquareButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="180"/>
+            <Setter Property="Background" Value="#FF6E35F2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="7" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+
+    <Border CornerRadius="10" BorderThickness="3" BorderBrush="#FF1D1D20">
+
         <Grid>
 
             <Grid.RowDefinitions >
@@ -57,69 +74,14 @@
                            
                            Grid.Column="0"
                            />
-                <Button
-                     
-                    Content="_"
-                    Cursor="Hand"
-                     Grid.Column="1" Click="Button_Click_2">
-
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Blue"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#6e35f2"></Setter>
-                                </Trigger>
-                            </Style.Triggers>
-
-                        </Style>
-
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="25" Height="25"
-                                    CornerRadius="999"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                    
+                <Button  Cursor="Hand" Grid.Column="1" Click="Button_Click_2" Style="{StaticResource RoundButtonStyle}">
+                    <ContentControl Width="20" Height="20" Content="_"/>
                 </Button>
-                <Button
-                    
-                     
-                     Content="X"
-                     Cursor="Hand"
-                     Grid.Column="2" Click="Button_Click_1" >
 
-
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#38f27c"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#6e35f2"></Setter>
-                                </Trigger>
-                            </Style.Triggers>
-
-                        </Style>
-
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="25" Height="25"
-                                    CornerRadius="999"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
+                <Button  Cursor="Hand" Grid.Column="2" Click="Button_Click_1" Style="{StaticResource RoundButtonStyle}">
+                    <ContentControl Width="20" Height="20" Content="X"/>
                 </Button>
-                
-                  
+
 
 
 
