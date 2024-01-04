@@ -15,9 +15,9 @@
 
     <Window.Resources>
         <Style x:Key="RoundButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="1"/>
-            <Setter Property="Height" Value="1"/>
-            <Setter Property="Margin" Value="1"/>
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -49,6 +49,7 @@
         </Style>
     </Window.Resources>
 
+
     <Border CornerRadius="10" BorderThickness="3" BorderBrush="#FF1D1D20">
         <Grid>
             <Grid.RowDefinitions>
@@ -65,9 +66,9 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="login xd" TextAlignment="Center" Grid.Column="0" Foreground="White"/>
-                
-                <Button Content="_" Cursor="Hand" Grid.Column="1" Click="Button_Click_2" Style="{StaticResource RoundButtonStyle}"/>
-                
+
+                <Button Content="_" Cursor="Hand" Grid.Column="1" Click="Button_Click_2" Style="{StaticResource RoundButtonStyle}"/> 
+
                 <Button Content="X" Cursor="Hand" Grid.Column="2" Click="Button_Click_1" Style="{StaticResource RoundButtonStyle}"/>
             </Grid>
 
@@ -92,7 +93,7 @@
             <Label Content="Hasło" HorizontalAlignment="Left" Margin="81,58,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
             
             <DataGrid Grid.Row="1" Name="xyz" Margin="348,5,78,229" Background="White" Foreground="Black"/>
-
+            
             <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="604,224,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
     </Border>
