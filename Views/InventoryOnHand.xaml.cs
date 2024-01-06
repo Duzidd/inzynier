@@ -50,7 +50,7 @@ namespace inzynier.Views
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT TOP (1000) [Id],[Name],[Location],[Hight],[Width] FROM [inz_xd].[dbo].[Products_inz]";
+                string sql = "SELECT id, P.[Name],P.[Location],P.[Hight],P.[Width],P.[Warehouse],Q.[Qty] FROM [inz_xd].[dbo].[Products_inz] P\r\nLEFT JOIN [inz_xd].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
 
                 SqlDataAdapter adapter = new(sql, connection);
                 DataTable dataTable = new();
@@ -74,7 +74,7 @@ namespace inzynier.Views
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT TOP (1000) [Id],[Name],[Location],[Hight],[Width] FROM [inz_xd].[dbo].[Products_inz]";
+                string sql = "SELECT id, P.[Name],P.[Location],P.[Hight],P.[Width],P.[Warehouse],Q.[Qty] FROM [inz_xd].[dbo].[Products_inz] P\r\nLEFT JOIN [inz_xd].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
 
                 SqlDataAdapter adapter = new(sql, connection);
                 DataTable dataTable = new();
@@ -114,46 +114,51 @@ namespace inzynier.Views
 
 
         private void Edit(object sender, RoutedEventArgs e)
+{
+    string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+    DataRowView selectedRow = (DataRowView)xyz.SelectedItem;
+
+    if (selectedRow != null)
+    {
+        string valueId = selectedRow["Id"].ToString();
+        string valueName = selectedRow["Name"].ToString();
+        string valueLocation = selectedRow["Location"].ToString();
+        string valueHight = selectedRow["Hight"].ToString();
+        string valueWidth = selectedRow["Width"].ToString();
+
+        // Dodaj pobieranie wartości dla ilości
+        string valueQty = selectedRow["Qty"].ToString();
+
+        EditWindow editWindow = new EditWindow(valueId, valueName, valueLocation, valueHight, valueWidth, valueQty);
+        editWindow.ShowDialog();
+
+        string editedValueHight = editWindow.EditedHight;
+        string editedValueId = editWindow.EditedId;
+        string editedValueName = editWindow.EditedName;
+        string editedValueLocation = editWindow.EditedLocation;
+        string editedValueWidth = editWindow.EditedWidth;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
         {
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-            DataRowView selectedRow = (DataRowView)xyz.SelectedItem;
+            connection.Open();
+            string updateSql = "UPDATE [inz_xd].[dbo].[Products_inz] SET Name=@ValueName, Location=@ValueLocation, Hight=@ValueHight, Width=@ValueWidth WHERE Id=@ValueId";
 
-            if (selectedRow != null)
+            using (SqlCommand cmd = new SqlCommand(updateSql, connection))
             {
-                string valueId = selectedRow["Id"].ToString();
-                string valueName = selectedRow["Name"].ToString();
-                string valueLocation = selectedRow["Location"].ToString();
-                string valueHight = selectedRow["Hight"].ToString();
-                string valueWidth = selectedRow["Width"].ToString();
-
-                EditWindow editWindow = new EditWindow(valueId, valueName, valueLocation, valueHight, valueWidth);
-                editWindow.ShowDialog();
-
-                string editedValueHight = editWindow.EditedHight;
-                string editedValueId = editWindow.EditedId;
-                string editedValueName = editWindow.EditedName;
-                string editedValueLocation = editWindow.EditedLocation;
-                string editedValueWidth = editWindow.EditedWidth;
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string updateSql = "UPDATE [inz_xd].[dbo].[Products_inz] SET Name=@ValueName, Location=@ValueLocation, Hight=@ValueHight, Width=@ValueWidth WHERE Id=@ValueId";
-
-                    using (SqlCommand cmd = new SqlCommand(updateSql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@ValueId", editedValueId);
-                        cmd.Parameters.AddWithValue("@ValueName", editedValueName);
-                        cmd.Parameters.AddWithValue("@ValueLocation", editedValueLocation);
-                        cmd.Parameters.AddWithValue("@ValueHight", editedValueHight);
-                        cmd.Parameters.AddWithValue("@ValueWidth", editedValueWidth);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                RefreshData();
+                cmd.Parameters.AddWithValue("@ValueId", editedValueId);
+                cmd.Parameters.AddWithValue("@ValueName", editedValueName);
+                cmd.Parameters.AddWithValue("@ValueLocation", editedValueLocation);
+                cmd.Parameters.AddWithValue("@ValueHight", editedValueHight);
+                cmd.Parameters.AddWithValue("@ValueWidth", editedValueWidth);
+                cmd.ExecuteNonQuery();
             }
         }
+
+        RefreshData();
+    }
+}
+
+
 
 
 

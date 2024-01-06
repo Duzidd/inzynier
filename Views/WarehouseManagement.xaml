@@ -30,8 +30,8 @@
         </Style>
 
         <Style x:Key="SquareButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="180"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="80"/>
             <Setter Property="Background" Value="#FF6E35F2"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="16"/>
@@ -80,11 +80,11 @@
                     <ContentControl Width="20" Height="20" Content="X"/>
                 </Button>
             </Grid>
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="604,102,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click" />
+            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="704,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click" />
             <TextBox x:Name="Warehouse" HorizontalAlignment="Left" Margin="97,121,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="Location" HorizontalAlignment="Left" Margin="97,192,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
             <DataGrid IsReadOnly="True" x:Name="War" Grid.Row="1"  Margin="233,33,257,69" />
-            <Button Content="Dodaj" HorizontalAlignment="Left" Margin="139,267,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
+            <Button Content="Dodaj" HorizontalAlignment="Left" Margin="139,267,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3" Style="{StaticResource SquareButtonStyle}"/>
             <Label Content="Magazyn" HorizontalAlignment="Left" Margin="29,117,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Lokalizacja" HorizontalAlignment="Left" Margin="25,189,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
 

@@ -1,8 +1,8 @@
 ﻿<Window x:Class="inzynier.EditWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Edit Window" Height="300" Width="400">
-    <Grid>
+        Title="Edit Window" Height="400" Width="400">
+    <Grid Margin="0,0,0,-35">
         <!-- Dodaj kontrolki do edycji wartości -->
         <StackPanel Margin="10">
             <Label Content="Id:"/>
@@ -12,13 +12,17 @@
             <TextBox x:Name="textBoxName"/>
 
             <Label Content="Location:"/>
-            <TextBox x:Name="textBoxLocation"/>
+            <TextBox x:Name="textBoxLocation" IsReadOnly="True"/>
 
             <Label Content="Hight:"/>
             <TextBox x:Name="textBoxHight"/>
 
             <Label Content="Width:"/>
             <TextBox x:Name="textBoxWidth"/>
+
+            <!-- Dodaj kontrolkę dla ilości -->
+            <Label Content="Qty:"/>
+            <TextBox x:Name="textBoxQty" IsReadOnly="True"/>
 
             <Button Content="Zapisz" Click="SaveButton_Click"/>
         </StackPanel>

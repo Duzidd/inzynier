@@ -30,8 +30,8 @@
         </Style>
 
         <Style x:Key="SquareButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="180"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="80"/>
             <Setter Property="Background" Value="#FF6E35F2"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="16"/>
@@ -70,20 +70,22 @@
 
                 <Button Content="X" Cursor="Hand" Grid.Column="2" Click="Button_Click_1" Style="{StaticResource RoundButtonStyle}"/>
             </Grid>
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="604,102,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="704,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
             <TextBox Name="namee" HorizontalAlignment="Left" Margin="130,157,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox Name="location" HorizontalAlignment="Left" Margin="130,192,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox Name="hight" HorizontalAlignment="Left" Margin="130,230,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox Name="hight" HorizontalAlignment="Left" Margin="130,299,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox Name="width" HorizontalAlignment="Left" Margin="130,264,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
             <Label Content="Nazwa" HorizontalAlignment="Left" Margin="47,153,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Lokalizacja" HorizontalAlignment="Left" Margin="47,188,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
-            <Label Content="Wysokość" HorizontalAlignment="Left" Margin="47,229,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
-            <Label Content="Szerokość" HorizontalAlignment="Left" Margin="47,260,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Wysokość" HorizontalAlignment="Left" Margin="49,290,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Szerokość" HorizontalAlignment="Left" Margin="45,260,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
 
-            <DataGrid Grid.Row="1" Name="gri" Margin="336,59,250,215" IsReadOnly="True" Background="#FF2D2D30" Foreground="White"/>
+            <DataGrid Grid.Row="1" Name="gri" Margin="336,59,66,128" IsReadOnly="True" Background="#FF2D2D30" Foreground="Black"/>
 
-            <Button Content="Dodaj przedmiot" HorizontalAlignment="Left" Margin="375,216,0,0" Grid.Row="1" VerticalAlignment="Top" Height="43" Width="96" Click="Button_Click_3" Style="{StaticResource SquareButtonStyle}"/>
+            <Button Content="Dodaj przedmiot" HorizontalAlignment="Left" Margin="10,361,0,0" Grid.Row="1" VerticalAlignment="Top" Height="43" Width="150" Click="Button_Click_3" Style="{StaticResource SquareButtonStyle}"/>
+            <Label Content="Magazyn" HorizontalAlignment="Left" Margin="47,219,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+            <TextBox Name="warehousee" HorizontalAlignment="Left" Margin="130,223,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
         </Grid>
     </Border>
 </Window>

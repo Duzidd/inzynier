@@ -65,9 +65,9 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="login xd" TextAlignment="Center" Grid.Column="0" Foreground="White"/>
-                
+
                 <Button Content="_" Cursor="Hand" Grid.Column="1" Click="Button_Click_2" Style="{StaticResource RoundButtonStyle}"/>
-                
+
                 <Button Content="X" Cursor="Hand" Grid.Column="2" Click="Button_Click_1" Style="{StaticResource RoundButtonStyle}"/>
             </Grid>
 
@@ -84,9 +84,9 @@
                 </DataGridTemplateColumn>
             </DataGrid>
 
-            <Button Content="Pokaz dane" HorizontalAlignment="Left" Margin="10,279,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click" Style="{StaticResource SquareButtonStyle}"/>
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="582,117,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
-            <Button Content="edytuj" HorizontalAlignment="Left" Margin="582,279,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Edit" Style="{StaticResource SquareButtonStyle}"/>
+            <Button Content="Pokaz dane" HorizontalAlignment="Left" Margin="10,329,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click" Style="{StaticResource SquareButtonStyle}"/>
+            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="684,329,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
+            <Button Content="edytuj" HorizontalAlignment="Left" Margin="694,148,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Edit" Style="{StaticResource SquareButtonStyle}"/>
         </Grid>
     </Border>
 </Window>

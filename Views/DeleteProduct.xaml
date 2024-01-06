@@ -30,8 +30,8 @@
             </Style>
 
             <Style x:Key="SquareButtonStyle" TargetType="Button">
-                <Setter Property="Width" Value="180"/>
-                <Setter Property="Height" Value="180"/>
+                <Setter Property="Width" Value="120"/>
+                <Setter Property="Height" Value="80"/>
                 <Setter Property="Background" Value="#FF6E35F2"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="FontSize" Value="16"/>
@@ -86,10 +86,10 @@
 
 
             </Grid>
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="604,102,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="664,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
             <DataGrid IsReadOnly="True" Grid.Row="1"  Margin="131,44,275,74" Name="deletee"/>
-            <Button Content="pokaż dane" HorizontalAlignment="Left" Margin="261,365,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
-            <Button Content="skasuj item" HorizontalAlignment="Left" Margin="418,375,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_4"/>
+            <Button Content="pokaż dane" HorizontalAlignment="Left" Margin="10,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3" Style="{StaticResource SquareButtonStyle}"/>
+            <Button Content="skasuj item" HorizontalAlignment="Left" Margin="553,152,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_4" Style="{StaticResource SquareButtonStyle}"/>
         </Grid>
 
 

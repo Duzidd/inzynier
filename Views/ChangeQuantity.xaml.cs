@@ -1,4 +1,6 @@
 ﻿using inzynier.Temp;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,6 +14,27 @@ namespace inzynier.Views
         public ChangeQuantity()
         {
             InitializeComponent();
+            Loaded += Window_Loaded;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Tutaj umieść kod, który chcesz wykonać przy inicjalizacji okna
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+            string sql = "SELECT id, P.[Name],P.[Location],Q.[Qty] FROM [inz_xd].[dbo].[Products_inz] P\r\nLEFT JOIN [inz_xd].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
+            // Tworzenie obiektu SqlDataAdapter
+            SqlDataAdapter adapter = new(sql, connection);
+
+            // Tworzenie obiektu DataTable
+            DataTable dataTable = new();
+
+            // Wypełnianie DataTable danymi z bazy danych
+            adapter.Fill(dataTable);
+
+            // Przypisanie DataTable do DataGrida
+            gri.ItemsSource = dataTable.DefaultView;
         }
         private void Windows_MouseDown(object sender, MouseEventArgs e)
         {
@@ -60,5 +83,42 @@ namespace inzynier.Views
                 this.Close();
             }
         }
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView selectedRow = (DataRowView)gri.SelectedItem;
+
+            if (selectedRow != null)
+            {
+                int itemId = (int)selectedRow["id"];
+                // Perform edit operation using itemId, you can open a new window or dialog for editing.
+                // For example, you can create an EditWindow and pass itemId to it.
+                EditQtyWindow editWindow = new EditQtyWindow(itemId);
+                editWindow.ShowDialog();
+
+                // Refresh the data after editing
+                RefreshData();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to edit.");
+            }
+        }
+
+        private void RefreshData()
+        {
+            // Refresh the DataGrid with updated data
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+            string sql = "SELECT id, P.[Name],P.[Location],Q.[Qty] FROM [inz_xd].[dbo].[Products_inz] P\r\nLEFT JOIN [inz_xd].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
+
+            SqlDataAdapter adapter = new(sql, connection);
+            DataTable dataTable = new();
+            adapter.Fill(dataTable);
+
+            gri.ItemsSource = dataTable.DefaultView;
+        }
+
     }
 }

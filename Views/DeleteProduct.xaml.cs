@@ -70,7 +70,7 @@ namespace inzynier.Views
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            string sql = "SELECT [Id],[Name],[Location],[Hight],[Width] FROM [inz_xd].[dbo].[Products_inz];";
+            string sql = "SELECT [Id],[Name],[Location],[Hight],[Width],[Warehouse] FROM [inz_xd].[dbo].[Products_inz];";
 
             // Tworzenie obiektu SqlDataAdapter
             SqlDataAdapter adapter = new(sql, connection);

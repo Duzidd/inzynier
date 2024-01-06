@@ -160,5 +160,39 @@ namespace inzynier.Views
             // Przypisanie DataTable do DataGrida
             xyz.ItemsSource = dataTable.DefaultView;
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            // Pobierz zaznaczone wiersze w DataGrid
+            var selectedRow = xyz.SelectedItem as DataRowView;
+
+            if (selectedRow != null)
+            {
+                // Pobierz wartość kolumny "Login", która jest kluczem głównym w Twojej tabeli
+                string loginToDelete = selectedRow["Login"].ToString();
+
+                // Połączenie z bazą danych
+                string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+                using SqlConnection connection = new SqlConnection(connectionString);
+                connection.Open();
+
+                // Polecenie SQL do usunięcia rekordu
+                string deleteSql = $"DELETE FROM [inz_xd].[dbo].[Users] WHERE [Login] = '{loginToDelete}'";
+
+                // Wykonanie polecenia SQL
+                SqlCommand command = new SqlCommand(deleteSql, connection);
+                command.ExecuteNonQuery();
+
+                // Aktualizowanie danych w DataGridu
+                RefreshData();
+            }
+            else
+            {
+                MessageBox.Show("Proszę wybrać wiersz do usunięcia.");
+            }
+        }
+
+
     }
 }

@@ -10,8 +10,10 @@ namespace inzynier
         public string EditedLocation { get; private set; }
         public string EditedHight { get; private set; }
         public string EditedWidth { get; private set; }
+        public string EditedQty { get; private set; }
 
-        public EditWindow(string id, string name, string location, string hight, string width)
+        // Dodaj konstruktor przyjmujący 6 argumentów
+        public EditWindow(string id, string name, string location, string hight, string width, string qty)
         {
             InitializeComponent();
 
@@ -21,6 +23,9 @@ namespace inzynier
             textBoxLocation.Text = location;
             textBoxHight.Text = hight;
             textBoxWidth.Text = width;
+
+            // Przypisz wartość qty
+            EditedQty = qty;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -37,4 +42,3 @@ namespace inzynier
         }
     }
 }
-
