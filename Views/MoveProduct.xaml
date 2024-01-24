@@ -135,7 +135,7 @@
 
             </Grid>
             <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="704,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
-            <DataGrid Grid.Row="1" Name="gri" Margin="340,5,78,229" Style="{StaticResource CommonDataGridStyle}">
+            <DataGrid Grid.Row="1" Name="gri" Margin="340,5,78,229" Style="{StaticResource CommonDataGridStyle}" HeadersVisibility="Column">
                 <!-- Pozostałe ustawienia dla DataGrid -->
             </DataGrid>
             <Button Content="Edytuj lokalizację" HorizontalAlignment="Left" Margin="10,361,0,0" Grid.Row="1" VerticalAlignment="Top" Height="43" Width="150" Click="Button_Click_3" Style="{StaticResource SquareButtonStyle}"/>

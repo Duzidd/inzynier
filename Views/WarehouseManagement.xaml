@@ -53,6 +53,9 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="CellStyle">
+                
+                
+                
                 <Setter.Value>
                     <Style TargetType="DataGridCell">
                         <Setter Property="Background" Value="Gray"/>
@@ -80,6 +83,11 @@
                     </Style>
                 </Setter.Value>
             </Setter>
+            <Setter Property="BorderBrush" Value="#FF273848"/>
+            <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="False"/>
         </Style>
 
         <Style x:Key="SquareButtonStyle" TargetType="Button">
@@ -111,7 +119,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid >
+            <Grid VerticalAlignment="Top" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition  Width="50" />
@@ -134,7 +142,7 @@
             <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="704,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click" />
             <TextBox x:Name="Warehouse" HorizontalAlignment="Left" Margin="97,121,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="Location" HorizontalAlignment="Left" Margin="97,192,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-            <DataGrid Grid.Row="1" Name="War" Margin="307,5,78,229" Style="{StaticResource CommonDataGridStyle}">
+            <DataGrid Grid.Row="1" Name="War" Margin="307,5,78,229" Style="{StaticResource CommonDataGridStyle}" HeadersVisibility="Column">
 
                 <!-- Pozostałe ustawienia dla DataGrid -->
             </DataGrid>

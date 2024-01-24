@@ -130,7 +130,7 @@
             <Label Content="Wysokość" HorizontalAlignment="Left" Margin="49,290,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Szerokość" HorizontalAlignment="Left" Margin="45,260,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
 
-            <DataGrid Grid.Row="1" Name="gri" Margin="340,5,78,229" Style="{StaticResource CommonDataGridStyle}">
+            <DataGrid Grid.Row="1" Name="gri" Margin="340,5,78,229" Style="{StaticResource CommonDataGridStyle}" HeadersVisibility="Column">
                 <!-- Pozostałe ustawienia dla DataGrid -->
             </DataGrid>
 

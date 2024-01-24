@@ -122,7 +122,7 @@
                 <Button Content="X" Cursor="Hand" Grid.Column="2" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_1" Margin="15,2,10,2"/>
             </Grid>
 
-            <DataGrid Grid.Row="1" Name="xyz" Margin="209,96,209,138" Style="{StaticResource CommonDataGridStyle}">
+            <DataGrid Grid.Row="1" Name="xyz" Margin="209,96,209,138" Style="{StaticResource CommonDataGridStyle}" HeadersVisibility="Column">
                 <!-- Pozostałe ustawienia dla DataGrid -->
             </DataGrid>
 
