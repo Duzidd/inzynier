@@ -31,7 +31,28 @@
                 </Setter>
             </Style>
 
-            <Style x:Key="SquareButtonStyle" TargetType="Button">
+        <Style x:Key="CommonButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="13" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#6e35f2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="SquareButtonStyle" TargetType="Button">
                 <Setter Property="Width" Value="180"/>
                 <Setter Property="Height" Value="180"/>
                 <Setter Property="Background" Value="#FF6E35F2"/>
@@ -70,13 +91,11 @@
 
                 <TextBlock TextAlignment="Center" Grid.Column="0"><Run Language="pl-pl" Text="ADMIN PAGE"/></TextBlock>
 
-                <Button  Cursor="Hand" Grid.Column="1" Click="Button_Click_2" Style="{StaticResource RoundButtonStyle}">
-                    <ContentControl Width="20" Height="20" Content="_"/>
-                </Button>
+                <!-- Przycisk "_" -->
+                <Button Content="_" Cursor="Hand" Grid.Column="1" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_2" Margin="15,2,10,2"/>
 
-                <Button  Cursor="Hand" Grid.Column="2" Click="Button_Click_1" Style="{StaticResource RoundButtonStyle}">
-                    <ContentControl Width="20" Height="20" Content="X"/>
-                </Button>
+                <!-- Przycisk "X" -->
+                <Button Content="X" Cursor="Hand" Grid.Column="2" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_1" Margin="15,2,10,2"/>
             </Grid>
 
 

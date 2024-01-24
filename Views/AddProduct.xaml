@@ -29,6 +29,53 @@
             </Setter>
         </Style>
 
+        <Style x:Key="CommonButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="13" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#6e35f2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CommonDataGridStyle" TargetType="DataGrid">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="CellStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Background" Value="Gray"/>
+                        <!-- Inne ustawienia stylu dla komórek -->
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="RowStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="Gray"/>
+                        <!-- Inne ustawienia stylu dla wierszy -->
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ColumnHeaderStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                        <Setter Property="Background" Value="Gray"/>
+                        <!-- Inne ustawienia stylu dla nagłówków kolumn -->
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="SquareButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="80"/>
             <Setter Property="Height" Value="80"/>
@@ -66,9 +113,11 @@
 
                 <TextBlock Text="login xd" TextAlignment="Center" Grid.Column="0" Foreground="White"/>
 
-                <Button Content="_" Cursor="Hand" Grid.Column="1" Click="Button_Click_2" Style="{StaticResource RoundButtonStyle}"/>
+                <!-- Przycisk "_" -->
+                <Button Content="_" Cursor="Hand" Grid.Column="1" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_2" Margin="15,2,10,2"/>
 
-                <Button Content="X" Cursor="Hand" Grid.Column="2" Click="Button_Click_1" Style="{StaticResource RoundButtonStyle}"/>
+                <!-- Przycisk "X" -->
+                <Button Content="X" Cursor="Hand" Grid.Column="2" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_1" Margin="15,2,10,2"/>
             </Grid>
             <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="704,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
             <TextBox Name="namee" HorizontalAlignment="Left" Margin="130,157,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -81,7 +130,9 @@
             <Label Content="Wysokość" HorizontalAlignment="Left" Margin="49,290,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Szerokość" HorizontalAlignment="Left" Margin="45,260,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
 
-            <DataGrid Grid.Row="1" Name="gri" Margin="336,59,66,128" IsReadOnly="True" Background="#FF2D2D30" Foreground="Black"/>
+            <DataGrid Grid.Row="1" Name="gri" Margin="340,5,78,229" Style="{StaticResource CommonDataGridStyle}">
+                <!-- Pozostałe ustawienia dla DataGrid -->
+            </DataGrid>
 
             <Button Content="Dodaj przedmiot" HorizontalAlignment="Left" Margin="10,361,0,0" Grid.Row="1" VerticalAlignment="Top" Height="43" Width="150" Click="Button_Click_3" Style="{StaticResource SquareButtonStyle}"/>
             <Label Content="Magazyn" HorizontalAlignment="Left" Margin="47,219,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
