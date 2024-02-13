@@ -24,7 +24,7 @@ namespace inzynier.Views
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            string sql = "SELECT TOP (1000) [First_Name],[Second_Name],[Role],[Login],[Password] FROM [inz_xd].[dbo].[Users]";
+            string sql = "SELECT TOP (1000) [First_Name],[Second_Name],[Role],[Login],[Password] FROM [inz].[dbo].[Users]";
 
             // Tworzenie obiektu SqlDataAdapter
             SqlDataAdapter adapter = new(sql, connection);
@@ -101,7 +101,7 @@ namespace inzynier.Views
             connection.Open();
 
             // Polecenie SQL do wstawienia danych
-            string sql = $"INSERT INTO [inz_xd].[dbo].[Users] ([First_Name], [Second_Name], [Role], [Login], [Password]) VALUES ('{FirstName}', '{SecondName}','{Role}','{Login}','{Password}')";
+            string sql = $"INSERT INTO [inz].[dbo].[Users] ([First_Name], [Second_Name], [Role], [Login], [Password]) VALUES ('{FirstName}', '{SecondName}','{Role}','{Login}','{Password}')";
 
             // Wykonanie polecenia SQL
             SqlCommand command = new(sql, connection);
@@ -120,7 +120,7 @@ namespace inzynier.Views
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT TOP (1000) [First_Name],[Second_Name],[Role],[Login],[Password] FROM [inz_xd].[dbo].[Users]";
+                string sql = "SELECT TOP (1000) [First_Name],[Second_Name],[Role],[Login],[Password] FROM [inz].[dbo].[Users]";
 
                 // Tworzenie obiektu SqlDataAdapter
                 SqlDataAdapter adapter = new(sql, connection);
@@ -146,7 +146,7 @@ namespace inzynier.Views
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            string sql = "SELECT TOP (1000) [First_Name],[Second_Name],[Role],[Login],[Password] FROM [inz_xd].[dbo].[Users]";
+            string sql = "SELECT TOP (1000) [First_Name],[Second_Name],[Role],[Login],[Password] FROM [inz].[dbo].[Users]";
 
             // Tworzenie obiektu SqlDataAdapter
             SqlDataAdapter adapter = new(sql, connection);
@@ -178,7 +178,7 @@ namespace inzynier.Views
                 connection.Open();
 
                 // Polecenie SQL do usunięcia rekordu
-                string deleteSql = $"DELETE FROM [inz_xd].[dbo].[Users] WHERE [Login] = '{loginToDelete}'";
+                string deleteSql = $"DELETE FROM [inz].[dbo].[Users] WHERE [Login] = '{loginToDelete}'";
 
                 // Wykonanie polecenia SQL
                 SqlCommand command = new SqlCommand(deleteSql, connection);

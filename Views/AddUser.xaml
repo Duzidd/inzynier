@@ -14,7 +14,7 @@
         MouseDown="Windows_MouseDown">
 
     <Window.Resources>
-        
+
         <Style x:Key="RoundButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="25"/>
             <Setter Property="Height" Value="25"/>
@@ -114,8 +114,6 @@
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="login xd" TextAlignment="Center" Grid.Column="0" Foreground="White"/>
-
                 <!-- Przycisk "_" -->
                 <Button Content="_" Cursor="Hand" Grid.Column="1" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_2" Margin="15,2,10,2"/>
 
@@ -127,7 +125,7 @@
             <TextBox Name="LoginBox" HorizontalAlignment="Left" Margin="139,27,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <PasswordBox  Name="PasswordBox" HorizontalAlignment="Left" Margin="139,62,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
 
-            <Button Content="Add User" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="10,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
+            <Button Content="Dodaj" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="10,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
 
             <ComboBox Name="Role_CBox" HorizontalAlignment="Left" Margin="139,161,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
                 <ComboBoxItem Content="Admin" />
@@ -144,14 +142,14 @@
             <Label Content="Imię" HorizontalAlignment="Left" Margin="81,95,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Hasło" HorizontalAlignment="Left" Margin="81,58,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
 
-            <DataGrid Grid.Row="1" Name="xyz" Margin="340,5,78,229" Style="{StaticResource CommonDataGridStyle}" HeadersVisibility="Column">
+            <DataGrid Grid.Row="1" Name="xyz" Margin="340,5,26,132" Style="{StaticResource CommonDataGridStyle}" HeadersVisibility="Column">
                 <!-- Pozostałe ustawienia dla DataGrid -->
             </DataGrid>
 
 
 
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="704,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
-            <Button Content="Kasuj&#xD;&#xA;Usera" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Center" Margin="0,291,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_5"/>
+            <Button Content="Cofnij" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="704,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Kasuj&#xA;" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Center" Margin="0,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_5"/>
         </Grid>
     </Border>
 </Window>

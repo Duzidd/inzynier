@@ -15,7 +15,7 @@ namespace inzynier.Views
         public InventoryOnHand()
         {
             InitializeComponent();
-           // RefreshData();
+            // RefreshData();
         }
         private void Windows_MouseDown(object sender, MouseEventArgs e)
         {
@@ -50,7 +50,7 @@ namespace inzynier.Views
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT id, P.[Name],P.[Location],P.[Hight],P.[Width],P.[Warehouse],Q.[Qty] FROM [inz_xd].[dbo].[Products_inz] P\r\nLEFT JOIN [inz_xd].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
+                string sql = "SELECT id, P.[Name],P.[Location],P.[Hight],P.[Width],P.[Warehouse],Q.[Qty] FROM [inz].[dbo].[Products_inz] P\r\nLEFT JOIN [inz].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
 
                 SqlDataAdapter adapter = new(sql, connection);
                 DataTable dataTable = new();
@@ -74,7 +74,7 @@ namespace inzynier.Views
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT id, P.[Name],P.[Location],P.[Hight],P.[Width],P.[Warehouse],Q.[Qty] FROM [inz_xd].[dbo].[Products_inz] P\r\nLEFT JOIN [inz_xd].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
+                string sql = "SELECT id, P.[Name],P.[Location],P.[Hight],P.[Width],P.[Warehouse],Q.[Qty] FROM [inz].[dbo].[Products_inz] P\r\nLEFT JOIN [inz].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
 
                 SqlDataAdapter adapter = new(sql, connection);
                 DataTable dataTable = new();
@@ -114,53 +114,82 @@ namespace inzynier.Views
 
 
         private void Edit(object sender, RoutedEventArgs e)
-{
-    string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-    DataRowView selectedRow = (DataRowView)xyz.SelectedItem;
-
-    if (selectedRow != null)
-    {
-        string valueId = selectedRow["Id"].ToString();
-        string valueName = selectedRow["Name"].ToString();
-        string valueLocation = selectedRow["Location"].ToString();
-        string valueHight = selectedRow["Hight"].ToString();
-        string valueWidth = selectedRow["Width"].ToString();
-
-        // Dodaj pobieranie wartości dla ilości
-        string valueQty = selectedRow["Qty"].ToString();
-
-        EditWindow editWindow = new EditWindow(valueId, valueName, valueLocation, valueHight, valueWidth, valueQty);
-        editWindow.ShowDialog();
-
-        string editedValueHight = editWindow.EditedHight;
-        string editedValueId = editWindow.EditedId;
-        string editedValueName = editWindow.EditedName;
-        string editedValueLocation = editWindow.EditedLocation;
-        string editedValueWidth = editWindow.EditedWidth;
-
-        using (SqlConnection connection = new SqlConnection(connectionString))
         {
-            connection.Open();
-            string updateSql = "UPDATE [inz_xd].[dbo].[Products_inz] SET Name=@ValueName, Location=@ValueLocation, Hight=@ValueHight, Width=@ValueWidth WHERE Id=@ValueId";
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+            DataRowView selectedRow = (DataRowView)xyz.SelectedItem;
 
-            using (SqlCommand cmd = new SqlCommand(updateSql, connection))
+            if (selectedRow != null)
             {
-                cmd.Parameters.AddWithValue("@ValueId", editedValueId);
-                cmd.Parameters.AddWithValue("@ValueName", editedValueName);
-                cmd.Parameters.AddWithValue("@ValueLocation", editedValueLocation);
-                cmd.Parameters.AddWithValue("@ValueHight", editedValueHight);
-                cmd.Parameters.AddWithValue("@ValueWidth", editedValueWidth);
-                cmd.ExecuteNonQuery();
+                string valueId = selectedRow["Id"].ToString();
+                string valueName = selectedRow["Name"].ToString();
+                string valueLocation = selectedRow["Location"].ToString();
+                string valueHight = selectedRow["Hight"].ToString();
+                string valueWidth = selectedRow["Width"].ToString();
+
+                // Dodaj pobieranie wartości dla ilości
+                string valueQty = selectedRow["Qty"].ToString();
+
+                EditWindow editWindow = new EditWindow(valueId, valueName, valueLocation, valueHight, valueWidth, valueQty);
+                editWindow.ShowDialog();
+
+                string editedValueHight = editWindow.EditedHight;
+                string editedValueId = editWindow.EditedId;
+                string editedValueName = editWindow.EditedName;
+                string editedValueLocation = editWindow.EditedLocation;
+                string editedValueWidth = editWindow.EditedWidth;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string updateSql = "UPDATE [inz].[dbo].[Products_inz] SET Name=@ValueName, Location=@ValueLocation, Hight=@ValueHight, Width=@ValueWidth WHERE Id=@ValueId";
+
+                    using (SqlCommand cmd = new SqlCommand(updateSql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@ValueId", editedValueId);
+                        cmd.Parameters.AddWithValue("@ValueName", editedValueName);
+                        cmd.Parameters.AddWithValue("@ValueLocation", editedValueLocation);
+                        cmd.Parameters.AddWithValue("@ValueHight", editedValueHight);
+                        cmd.Parameters.AddWithValue("@ValueWidth", editedValueWidth);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                RefreshData();
             }
         }
 
-        RefreshData();
-    }
-}
+        private void Export_Excel(object sender, RoutedEventArgs e)
+        {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+            string query = "SELECT id, P.[Name], P.[Location], P.[Hight], P.[Width], P.[Warehouse], Q.[Qty] FROM [inz].[dbo].[Products_inz] P LEFT JOIN " +
+                "[inz].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
 
+                // Utworzenie nowego dokumentu Excel
+                var workbook = new ClosedXML.Excel.XLWorkbook();
+                var worksheet = workbook.Worksheets.Add("Inventory");
 
+                // Dodanie danych z DataTable do arkusza Excel
+                worksheet.Cell(1, 1).InsertTable(dataTable.AsEnumerable());
 
+                // Zapisanie pliku Excel
+                var saveFileDialog = new Microsoft.Win32.SaveFileDialog
+                {
+                    Filter = "Excel Workbook (*.xlsx)|*.xlsx",
+                    Title = "Save as Excel Workbook"
+                };
 
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    workbook.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Dane zostały wyeksportowane.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
     }
 }

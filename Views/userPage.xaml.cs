@@ -67,6 +67,13 @@ namespace inzynier.Views
             new60.Show();
             this.Close();
         }
+
+        private void Button_Click_11(object sender, RoutedEventArgs e)
+        {
+            ChangeQuantity new46 = new();
+            new46.Show();
+            this.Close();
+        }
     }
 }
 

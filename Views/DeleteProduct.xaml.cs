@@ -70,7 +70,7 @@ namespace inzynier.Views
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            string sql = "SELECT [Id],[Name],[Location],[Hight],[Width],[Warehouse] FROM [inz_xd].[dbo].[Products_inz];";
+            string sql = "SELECT [Id],[Name],[Location],[Hight],[Width],[Warehouse] FROM [inz].[dbo].[Products_inz];";
 
             // Tworzenie obiektu SqlDataAdapter
             SqlDataAdapter adapter = new(sql, connection);
@@ -103,7 +103,7 @@ namespace inzynier.Views
                 // yourObservableCollection.Remove(selectedRecord);
 
                 // Usuń rekord z bazy danych (przykładowe zapytanie SQL)
-                string deleteSql = $"DELETE  FROM [inz_xd].[dbo].[Products_inz] WHERE Id = {idToDelete}";
+                string deleteSql = $"DELETE  FROM [inz].[dbo].[Products_inz] WHERE Id = {idToDelete}";
 
                 using SqlConnection deleteConnection = new(connectionString);
                 deleteConnection.Open();

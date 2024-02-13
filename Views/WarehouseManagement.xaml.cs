@@ -73,7 +73,7 @@ namespace inzynier.Views
             connection.Open();
 
             // Polecenie SQL do wstawienia danych
-            string sql = $"INSERT INTO [inz_xd].[dbo].[Warehouse] ([Warehouse], [Location]) VALUES" +
+            string sql = $"INSERT INTO [inz].[dbo].[Warehouse] ([Warehouse], [Location]) VALUES" +
                          $" ('{Namee}','{Locationn}');";
 
             try
@@ -110,7 +110,7 @@ namespace inzynier.Views
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT TOP (1000) [Warehouse],[Location]FROM [inz_xd].[dbo].[Warehouse]";
+                string sql = "SELECT TOP (1000) [Warehouse],[Location]FROM [inz].[dbo].[Warehouse]";
 
                 // Tworzenie obiektu SqlDataAdapter
                 SqlDataAdapter adapter = new(sql, connection);

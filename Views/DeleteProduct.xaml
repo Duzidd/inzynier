@@ -12,22 +12,22 @@
         Background="#FF2D2D30"
         AllowsTransparency="True"
         MouseDown="Windows_MouseDown">
-    
-        <Window.Resources>
-            <Style x:Key="RoundButtonStyle" TargetType="Button">
-                <Setter Property="Width" Value="25"/>
-                <Setter Property="Height" Value="25"/>
-                <Setter Property="Margin" Value="5"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="{TemplateBinding Width}" Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
+
+    <Window.Resources>
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="{TemplateBinding Width}" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <Style x:Key="CommonButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="25"/>
@@ -79,24 +79,24 @@
         </Style>
 
         <Style x:Key="SquareButtonStyle" TargetType="Button">
-                <Setter Property="Width" Value="120"/>
-                <Setter Property="Height" Value="80"/>
-                <Setter Property="Background" Value="#FF6E35F2"/>
-                <Setter Property="Foreground" Value="White"/>
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Margin" Value="10"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="7" Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Window.Resources>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Background" Value="#FF6E35F2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="7" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <Border CornerRadius="10" BorderThickness="3" BorderBrush="#FF1D1D20">
 
@@ -114,13 +114,6 @@
                     <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
-
-
-                <TextBlock Text="login xd"
-                           TextAlignment="Center"
-                           
-                           Grid.Column="0"
-                           />
                 <!-- Przycisk "_" -->
                 <Button Content="_" Cursor="Hand" Grid.Column="1" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_2" Margin="15,2,10,2"/>
 
@@ -133,12 +126,12 @@
 
 
             </Grid>
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="664,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
-            <DataGrid Grid.Row="1" Name="deletee" Margin="340,5,78,229" Style="{StaticResource CommonDataGridStyle}" HeadersVisibility="Column">
+            <Button Content="Cofnij" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="664,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
+            <DataGrid Grid.Row="1" Name="deletee" Margin="209,102,209,132" Style="{StaticResource CommonDataGridStyle}" HeadersVisibility="Column">
                 <!-- Pozostałe ustawienia dla DataGrid -->
             </DataGrid>
-            <Button Content="pokaż dane" HorizontalAlignment="Left" Margin="10,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3" Style="{StaticResource SquareButtonStyle}"/>
-            <Button Content="skasuj item" HorizontalAlignment="Left" Margin="300,317,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_4" Style="{StaticResource SquareButtonStyle}"/>
+            <Button Content="Pokaż dane" HorizontalAlignment="Left" Margin="10,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3" Style="{StaticResource SquareButtonStyle}"/>
+            <Button Content="Skasuj " HorizontalAlignment="Center" Margin="0,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_4" Style="{StaticResource SquareButtonStyle}"/>
         </Grid>
 
 

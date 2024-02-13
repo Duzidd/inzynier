@@ -11,7 +11,7 @@ namespace inzynier.Views
     /// </summary>
     public partial class MoveProduct : Window
     {
-        
+
 
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -21,7 +21,7 @@ namespace inzynier.Views
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            string sql = "SELECT  [Id],[Name],[Hight]   ,[Width],[Warehouse]   ,[Location]   FROM [inz_xd].[dbo].[Products_inz]";
+            string sql = "SELECT  [Id],[Name],[Hight]   ,[Width],[Warehouse]   ,[Location]   FROM [inz].[dbo].[Products_inz]";
 
             // Tworzenie obiektu SqlDataAdapter
             SqlDataAdapter adapter = new(sql, connection);
@@ -135,7 +135,7 @@ namespace inzynier.Views
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            string sql = "SELECT  [Id],[Name],[Hight]   ,[Width],[Warehouse]   ,[Location]   FROM [inz_xd].[dbo].[Products_inz]";
+            string sql = "SELECT  [Id],[Name],[Hight]   ,[Width],[Warehouse]   ,[Location]   FROM [inz].[dbo].[Products_inz]";
 
             SqlDataAdapter adapter = new(sql, connection);
             DataTable dataTable = new();

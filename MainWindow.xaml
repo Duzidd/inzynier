@@ -78,7 +78,7 @@
 
             <Grid.RowDefinitions >
                 <RowDefinition Height="30"/>
-                <RowDefinition/>    
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <Grid >
@@ -90,7 +90,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <TextBlock Text="login xd"
+                <TextBlock Text="w64898"
                            TextAlignment="Center"
                            
                            Grid.Column="0"
@@ -107,10 +107,9 @@
 
             </Grid>
             <StackPanel
-                    Width="250"
-                    Grid.Row="2"
+                    Grid.Row="1"
                     Orientation="Vertical"
-                    Margin="0,50,0,0">
+                    Margin="144,10,144,0">
                 <Image Source="/img/js.jpg"
                        Width="100"
                        Height="100">
@@ -159,9 +158,8 @@
 
 
             </StackPanel>
-            <Button Content="Test bazy" HorizontalAlignment="Left" Margin="630,147,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3" Style="{StaticResource SquareButtonStyle}"/>
-            
-            
+
+
         </Grid>
 
 

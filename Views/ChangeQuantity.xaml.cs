@@ -23,7 +23,7 @@ namespace inzynier.Views
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            string sql = "SELECT id, P.[Name],P.[Location],Q.[Qty] FROM [inz_xd].[dbo].[Products_inz] P\r\nLEFT JOIN [inz_xd].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
+            string sql = "SELECT id, P.[Name],P.[Location],Q.[Qty] FROM [inz].[dbo].[Products_inz] P\r\nLEFT JOIN [inz].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
             // Tworzenie obiektu SqlDataAdapter
             SqlDataAdapter adapter = new(sql, connection);
 
@@ -111,7 +111,7 @@ namespace inzynier.Views
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            string sql = "SELECT id, P.[Name],P.[Location],Q.[Qty] FROM [inz_xd].[dbo].[Products_inz] P\r\nLEFT JOIN [inz_xd].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
+            string sql = "SELECT id, P.[Name],P.[Location],Q.[Qty] FROM [inz].[dbo].[Products_inz] P\r\nLEFT JOIN [inz].[dbo].[Quantity] Q ON P.[Id] = Q.[ItemID]";
 
             SqlDataAdapter adapter = new(sql, connection);
             DataTable dataTable = new();

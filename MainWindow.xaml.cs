@@ -47,8 +47,8 @@ namespace inzynier
                     sqlCon.Open();
 
 
-                String query = "SELECT COUNT(1) FROM [inz_xd].[dbo].[Users] WHERE Login=@Username AND Password=@Password";
-                String query2 = "SELECT Role FROM [inz_xd].[dbo].[Users] WHERE Login=@Username AND Password=@Password";
+                String query = "SELECT COUNT(1) FROM [inz].[dbo].[Users] WHERE Login=@Username AND Password=@Password";
+                String query2 = "SELECT Role FROM [inz].[dbo].[Users] WHERE Login=@Username AND Password=@Password";
 
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);
@@ -135,7 +135,7 @@ namespace inzynier
 
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        /*private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
 
@@ -155,6 +155,6 @@ namespace inzynier
 
                 MessageBox.Show("błąd");
             }
-        }
+        }*/
     }
 }

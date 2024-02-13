@@ -6,22 +6,22 @@
         <!-- Dodaj kontrolki do edycji wartości -->
         <StackPanel Margin="10">
             <Label Content="Id:"/>
-            <TextBox x:Name="textBoxId"/>
+            <TextBox x:Name="textBoxId" IsReadOnly="True" />
 
-            <Label Content="Name:"/>
+            <Label Content="Nazwa:"/>
             <TextBox x:Name="textBoxName"/>
 
-            <Label Content="Location:"/>
+            <Label Content="Lokalizacja:"/>
             <TextBox x:Name="textBoxLocation" IsReadOnly="True"/>
 
-            <Label Content="Hight:"/>
+            <Label Content="Wysokość:"/>
             <TextBox x:Name="textBoxHight"/>
 
-            <Label Content="Width:"/>
+            <Label Content="Szerokość:"/>
             <TextBox x:Name="textBoxWidth"/>
 
             <!-- Dodaj kontrolkę dla ilości -->
-            <Label Content="Qty:"/>
+            <Label Content="Ilość:"/>
             <TextBox x:Name="textBoxQty" IsReadOnly="True"/>
 
             <Button Content="Zapisz" Click="SaveButton_Click"/>

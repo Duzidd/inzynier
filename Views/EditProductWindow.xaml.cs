@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 
 
@@ -58,7 +46,7 @@ namespace inzynier.Views
                 using SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
 
-                string updateSql = $"UPDATE [inz_xd].[dbo].[Products_inz] SET [Name] = '{txtName.Text}', [Hight] = {newHight}, [Width] = {newWidth}, [Warehouse] = '{txtWarehouse.Text}', [Location] = '{txtLocation.Text}' WHERE [Id] = {productId}";
+                string updateSql = $"UPDATE [inz].[dbo].[Products_inz] SET [Name] = '{txtName.Text}', [Hight] = {newHight}, [Width] = {newWidth}, [Warehouse] = '{txtWarehouse.Text}', [Location] = '{txtLocation.Text}' WHERE [Id] = {productId}";
 
                 using SqlCommand command = new SqlCommand(updateSql, connection);
                 command.ExecuteNonQuery();
@@ -80,7 +68,7 @@ namespace inzynier.Views
             using SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string checkWarehouseSql = $"SELECT COUNT(*) FROM [inz_xd].[dbo].[Warehouse] WHERE [Warehouse] = '{warehouse}'";
+            string checkWarehouseSql = $"SELECT COUNT(*) FROM [inz].[dbo].[Warehouse] WHERE [Warehouse] = '{warehouse}'";
 
             using SqlCommand checkWarehouseCommand = new SqlCommand(checkWarehouseSql, connection);
             int count = (int)checkWarehouseCommand.ExecuteScalar();
@@ -96,7 +84,7 @@ namespace inzynier.Views
             using SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string checkLocationSql = $"SELECT COUNT(*) FROM [inz_xd].[dbo].[Warehouse] WHERE [Location] = '{location}'";
+            string checkLocationSql = $"SELECT COUNT(*) FROM [inz].[dbo].[Warehouse] WHERE [Location] = '{location}'";
 
             using SqlCommand checkLocationCommand = new SqlCommand(checkLocationSql, connection);
             int count = (int)checkLocationCommand.ExecuteScalar();

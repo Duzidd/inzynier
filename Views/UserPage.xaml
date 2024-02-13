@@ -85,13 +85,6 @@
                     <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
-
-
-                <TextBlock Text="login xd"
-                           TextAlignment="Center"
-                           
-                           Grid.Column="0"
-                           />
                 <!-- Przycisk "_" -->
                 <Button Content="_" Cursor="Hand" Grid.Column="1" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_2" Margin="15,2,10,2"/>
 
@@ -104,9 +97,9 @@
             <Button Content="Dodawanie produktow"  Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="567,23,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_4"/>
 
 
-            <Button Content ="Przesuwanie produktow" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="10,207,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_3"/>
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="567,192,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_5"/>
-
+            <Button Content ="Przesuwanie produktow" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="10,264,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_3"/>
+            <Button Content="Cofnij" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="567,264,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="217" Click="Button_Click_5"/>
+            <Button Content="Zmiana ilości produktu" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Center" Margin="0,23,0,0" Grid.Row="1" VerticalAlignment="Top" Height="140" Width="218" Click="Button_Click_11"/>
             <TextBlock HorizontalAlignment="Center" Margin="0,163,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{x:Static local:IsAdmin.IsAdminn}" VerticalAlignment="Top"/>
 
 

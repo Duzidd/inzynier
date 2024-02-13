@@ -22,7 +22,7 @@ namespace inzynier.Views
                 using SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
 
-                string updateSql = $"UPDATE [inz_xd].[dbo].[Quantity] SET Qty = {newQuantity} WHERE ItemID = {itemId}";
+                string updateSql = $"UPDATE [inz].[dbo].[Quantity] SET Qty = {newQuantity} WHERE ItemID = {itemId}";
 
                 using SqlCommand command = new SqlCommand(updateSql, connection);
                 command.ExecuteNonQuery();

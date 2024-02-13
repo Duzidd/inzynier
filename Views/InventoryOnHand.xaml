@@ -113,8 +113,6 @@
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="login xd" TextAlignment="Center" Grid.Column="0" Foreground="White"/>
-
                 <!-- Przycisk "_" -->
                 <Button Content="_" Cursor="Hand" Grid.Column="1" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_2" Margin="15,2,10,2"/>
 
@@ -128,7 +126,8 @@
 
             <Button Content="Pokaz dane" HorizontalAlignment="Left" Margin="10,329,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click" Style="{StaticResource SquareButtonStyle}"/>
             <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="684,329,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_3"/>
-            <Button Content="edytuj" HorizontalAlignment="Left" Margin="694,148,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Edit" Style="{StaticResource SquareButtonStyle}"/>
+            <Button Content="Edytuj" HorizontalAlignment="Left" Margin="684,148,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Edit" Style="{StaticResource SquareButtonStyle}"/>
+            <Button Content="Export Excel" HorizontalAlignment="Left" Margin="337,329,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Export_Excel" Style="{StaticResource SquareButtonStyle}"/>
         </Grid>
     </Border>
 </Window>

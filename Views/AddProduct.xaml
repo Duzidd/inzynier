@@ -111,7 +111,7 @@
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="login xd" TextAlignment="Center" Grid.Column="0" Foreground="White"/>
+                
 
                 <!-- Przycisk "_" -->
                 <Button Content="_" Cursor="Hand" Grid.Column="1" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_2" Margin="15,2,10,2"/>
@@ -119,7 +119,7 @@
                 <!-- Przycisk "X" -->
                 <Button Content="X" Cursor="Hand" Grid.Column="2" Style="{StaticResource CommonButtonStyle}" Click="Button_Click_1" Margin="15,2,10,2"/>
             </Grid>
-            <Button Content="Back" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="704,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Cofnij" Style="{StaticResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="704,324,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
             <TextBox Name="namee" HorizontalAlignment="Left" Margin="130,157,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox Name="location" HorizontalAlignment="Left" Margin="130,192,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox Name="hight" HorizontalAlignment="Left" Margin="130,299,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Input;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace inzynier.Views
 {
@@ -22,7 +21,7 @@ namespace inzynier.Views
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            string sql = "SELECT  [Id],[Name]   ,[Location]  ,[Hight]   ,[Width],[Warehouse] FROM [inz_xd].[dbo].[Products_inz]";
+            string sql = "SELECT  [Id],[Name]   ,[Location]  ,[Hight]   ,[Width],[Warehouse] FROM [inz].[dbo].[Products_inz]";
 
             // Tworzenie obiektu SqlDataAdapter
             SqlDataAdapter adapter = new(sql, connection);
@@ -109,14 +108,14 @@ namespace inzynier.Views
             // Walidacja czy Height to liczba
             if (!int.TryParse(Hight, out int heightValue))
             {
-                MessageBox.Show("Wprowadź poprawną wartość dla pola 'Height'.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Wprowadź poprawną wartość dla pola 'Wysokość'.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             // Walidacja czy Width to liczba
             if (!int.TryParse(Width, out int widthValue))
             {
-                MessageBox.Show("Wprowadź poprawną wartość dla pola 'Width'.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Wprowadź poprawną wartość dla pola 'Szerokość'.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -133,7 +132,7 @@ namespace inzynier.Views
                 transaction = connection.BeginTransaction();
 
                 // Sprawdzenie czy magazyn i lokalizacja już istnieją w tabeli Warehouse
-                string checkIfExistsQuery = $"SELECT COUNT(*) FROM [inz_xd].[dbo].[Warehouse] WHERE [Warehouse] = '{Warehousee}' AND [Location] = '{Location}'";
+                string checkIfExistsQuery = $"SELECT COUNT(*) FROM [inz].[dbo].[Warehouse] WHERE [Warehouse] = '{Warehousee}' AND [Location] = '{Location}'";
 
                 using SqlCommand checkIfExistsCommand = new SqlCommand(checkIfExistsQuery, connection, transaction);
                 int existingRecordsCount = (int)checkIfExistsCommand.ExecuteScalar();
@@ -146,7 +145,7 @@ namespace inzynier.Views
                 }
 
                 // Sprawdzenie czy produkt o tej samej nazwie już istnieje
-                string checkProductIfExistsQuery = $"SELECT COUNT(*) FROM [inz_xd].[dbo].[Products_inz] WHERE [Name] = '{Namee}'";
+                string checkProductIfExistsQuery = $"SELECT COUNT(*) FROM [inz].[dbo].[Products_inz] WHERE [Name] = '{Namee}'";
 
                 using SqlCommand checkProductIfExistsCommand = new SqlCommand(checkProductIfExistsQuery, connection, transaction);
                 int existingProductCount = (int)checkProductIfExistsCommand.ExecuteScalar();
@@ -159,7 +158,7 @@ namespace inzynier.Views
                 }
 
                 // Polecenie SQL do wstawienia danych do tabeli Products_inz
-                string insertProductQuery = $"INSERT INTO [inz_xd].[dbo].[Products_inz] ([Name], [Location], [Hight], [Width], [Warehouse]) VALUES" +
+                string insertProductQuery = $"INSERT INTO [inz].[dbo].[Products_inz] ([Name], [Location], [Hight], [Width], [Warehouse]) VALUES" +
                     $" ('{Namee}','{Location}',{heightValue},{widthValue},'{Warehousee}');";
 
                 using SqlCommand insertProductCommand = new SqlCommand(insertProductQuery, connection, transaction);
@@ -172,7 +171,7 @@ namespace inzynier.Views
                 int productId = Convert.ToInt32(getProductIdCommand.ExecuteScalar());
 
                 // Polecenie SQL do wstawienia danych do tabeli Quantity
-                string insertQuantityQuery = $"INSERT INTO [inz_xd].[dbo].[Quantity] ([ItemID], [Qty]) VALUES ({productId}, 1);";
+                string insertQuantityQuery = $"INSERT INTO [inz].[dbo].[Quantity] ([ItemID], [Qty]) VALUES ({productId}, 1);";
 
                 using SqlCommand insertQuantityCommand = new SqlCommand(insertQuantityQuery, connection, transaction);
                 insertQuantityCommand.ExecuteNonQuery();
@@ -204,7 +203,7 @@ namespace inzynier.Views
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT  [Id]\r\n      ,[Name]\r\n      ,[Location]\r\n      ,[Hight]\r\n      ,[Width]\r\n,[Warehouse] FROM [inz_xd].[dbo].[Products_inz]";
+                string sql = "SELECT  [Id]\r\n      ,[Name]\r\n      ,[Location]\r\n      ,[Hight]\r\n      ,[Width]\r\n,[Warehouse] FROM [inz].[dbo].[Products_inz]";
 
                 // Tworzenie obiektu SqlDataAdapter
                 SqlDataAdapter adapter = new(sql, connection);
